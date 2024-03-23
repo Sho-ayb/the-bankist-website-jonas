@@ -1,0 +1,7 @@
+ # Set line endings to LF for JavaScript files
+*.js text eol=lf
+   
+
+
+
+

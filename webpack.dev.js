@@ -1,26 +1,36 @@
-const webpack = require('webpack');
-const path = require('path');
-const common = require('./webpack.common');
-const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack");
+const path = require("path");
+const common = require("./webpack.common");
+const { merge } = require("webpack-merge");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const StylelintPlugin = require("stylelint-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = merge(common, {
-  mode: 'development',
+  mode: "development",
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
-    assetModuleFilename: './src/assets/img/[name][ext]',
+    path: path.resolve(__dirname, "build"),
+    filename: "bundle.js",
+    assetModuleFilename: "./src/assets/img/[name][ext]",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/template.html',
+      template: "./src/template.html",
+    }),
+    new StylelintPlugin({
+      configFile: path.resolve(__dirname, ".stylelintrc.json"),
+      files: "**/*.scss",
+      fix: true,
+    }),
+    new ESLintPlugin({
+      overrideConfigFile: path.resolve(__dirname, "eslintrc.json"),
     }),
   ],
   module: {
     rules: [
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
