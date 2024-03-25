@@ -4,7 +4,7 @@
   "description": "A JS website for the Bankist Application",
   "main": "index.js",
   "scripts": {
-    "build:dev": "webpack serve --config webpack.dev.js --open-app-name chrome",
+    "build:dev": "webpack serve --allowed-hosts all --config webpack.dev.js --open-app-name chrome ",
     "build:prod": "webpack --config webpack.prod.js"
   },
   "keywords": [
