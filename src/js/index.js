@@ -6,6 +6,10 @@ import heroImg from '../assets/img/hero.png';
 import featuresDigitalImg from '../assets/img/digital.jpg';
 import featuresPlantImg from '../assets/img/grow-lazy.jpg';
 import featuresCreditImg from '../assets/img/card.jpg';
+import testimonialPic1 from '../assets/img/user-1.jpg';
+import testimonialPic2 from '../assets/img/user-2.jpg';
+import testimonialPic3 from '../assets/img/user-3.jpg';
+import footerIcon from '../assets/img/icon.png';
 
 // Icons
 

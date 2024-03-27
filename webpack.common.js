@@ -8,9 +8,16 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'build'),
     },
+    client: {
+      logging: 'info',
+      webSocketURL: 'ws://localhost:9000/ws',
+      webSocketTransport: 'ws',
+    },
+    webSocketServer: 'ws',
+    headers: { 'Access-Control-Allow-Origin': '*' },
     hot: false,
-    compress: true,
     port: 9000,
+    compress: true,
   },
   module: {
     rules: [
