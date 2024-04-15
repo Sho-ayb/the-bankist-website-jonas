@@ -1,11 +1,26 @@
-$background-color: whitesmoke;
+// Rest & Variables
 
-body {
-  background-color: $background-color;
-  color: #333;
+@use "base/reset";
+@use "base/variables" as variables;
 
-  img {
-    width: 100%;
-    height: 150px;
+// Compositions
+
+@use "compositions/grid-auto.scss";
+
+// Components
+
+@use "components/header";
+
+// Utilities
+
+@use "utilities/spacing";
+
+// Global Styles
+
+main .section {
+  border-top: 1px solid variables.$color-border;
+
+  @media (min-width: 48rem) {
+    padding: calc(variables.$spacing-2xl * 3) variables.$spacing-2xl;
   }
 }

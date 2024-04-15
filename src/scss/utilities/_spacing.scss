@@ -1,0 +1,47 @@
+@use "../base/variables" as variables;
+
+.pad-body {
+  padding: 0 variables.$spacing-2xl;
+}
+
+.pad-xs {
+  padding: variables.$spacing-xs;
+}
+
+.pad-sm {
+  padding: variables.$spacing-sm;
+}
+
+.pad-md {
+  padding: variables.$spacing-md;
+}
+
+.pad-lg {
+  padding: variables.$spacing-lg;
+}
+
+.pad-xl {
+  padding: variables.$spacing-xl;
+}
+
+// Margin utilities
+
+.mar-xs {
+  margin: variables.$spacing-xs;
+}
+
+.mar-sm {
+  margin: variables.$spacing-sm;
+}
+
+.mar-md {
+  margin: variables.$spacing-md;
+}
+
+.mar-lg {
+  margin: variables.$spacing-lg;
+}
+
+.mar-xl {
+  margin: variables.$spacing-xl;
+}

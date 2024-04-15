@@ -9,11 +9,12 @@
       rel="stylesheet"
     />
 
+    <!-- Gets rid of the favicon error in the dev console -->
     <link rel="shortcut icon" href="data:image/x-icon;" type="image/x-icon" />
 
     <title>The Bankist Website</title>
   </head>
-  <body>
+  <body class="[ grid-auto ] [ pad-body ]">
     <header class="header">
       <div class="header-logo">
         <img src="../src/assets/img/logo.png" alt="Bankist logo" class="logo" />
@@ -57,7 +58,7 @@
     </header>
 
     <main>
-      <section class="section" id="section-features">
+      <section class="section [ pad-sm ]" id="section-features">
         <div class="section-title">
           <h2 class="section-description">Features</h2>
           <h3 class="section-heading">
@@ -137,7 +138,7 @@
           </div>
         </div>
       </section>
-      <section class="section" id="section-operations">
+      <section class="section [ pad-sm ]" id="section-operations">
         <div class="section-title">
           <h2 class="section-description">Operations</h2>
           <h3 class="section-header">
@@ -222,7 +223,7 @@
           </div>
         </div>
       </section>
-      <section class="section" id="section-testimonials">
+      <section class="section [ pad-sm ]" id="section-testimonials">
         <div class="section-title">
           <h2 class="section-description">Not sure yet?</h2>
           <h3 class="section-header">
@@ -312,14 +313,17 @@
           <div class="dots"></div>
         </div>
       </section>
-      <section class="section section--sign-up"></section>
-      <div class="section-title">
-        <h3 class="section-header">
-          The best day to join Bankist was one year ago. The second best is
-          today!
-        </h3>
-      </div>
-      <button class="btn btn--show-modal">Open your free account today!</button>
+      <section class="section section--sign-up [ pad-md ]">
+        <div class="section-title">
+          <h3 class="section-header">
+            The best day to join Bankist was one year ago. The second best is
+            today!
+          </h3>
+          <button class="btn btn-show--modal">
+            Open your free account today!
+          </button>
+        </div>
+      </section>
     </main>
     <footer>
       <ul class="footer-nav">
