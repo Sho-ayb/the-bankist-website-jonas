@@ -14,52 +14,70 @@
 
     <title>The Bankist Website</title>
   </head>
-  <body class="[ grid-auto ] [ pad-body ]">
-    <header class="header">
-      <div class="header-logo">
-        <img src="../src/assets/img/logo.png" alt="Bankist logo" class="logo" />
+  <body class="[ pad-body margin-inline ]">
+    <header class="header [ grid-header ]">
+      <div class="header-nav">
+        <div class="header-nav-logo">
+          <img
+            src="../src/assets/img/logo.png"
+            alt="Bankist logo"
+            class="logo"
+          />
+        </div>
+        <button>
+          <i class="bx bx-menu bx-border-circle"></i>
+        </button>
+        <nav class="header-nav-menu [ visually-hidden ]">
+          <ul class="header-nav-menu-list">
+            <li class="header-nav-menu-items">
+              <a href="" class="header-nav-menu-links">Features</a>
+            </li>
+            <li class="header-nav-menu-items">
+              <a href="#section-features" class="header-nav-menu-links"
+                >Operations</a
+              >
+            </li>
+            <li class="header-nav-menu-items">
+              <a href="#section-operations" class="header-nav-menu-links"
+                >Testimonials</a
+              >
+            </li>
+            <li class="header-nav-menu-items">
+              <a
+                href="#"
+                class="header-nav-menu-links header-nav-menu-links--btn btn--show-modal"
+                >Open account</a
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
-      <button>
-        <i class="bx bx-menu bx-border-circle"></i>
-      </button>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li class="nav-items">
-            <a href="" class="nav-link">Features</a>
-          </li>
-          <li class="nav-items">
-            <a href="" class="nav-link">Operations</a>
-          </li>
-          <li class="nav-items">
-            <a href="" class="nav-link">Testimonials</a>
-          </li>
-          <li class="nav-items">
-            <a href="#" class="nav-link nav-link--btn btn--show-modal"
-              >Open account</a
-            >
-          </li>
-        </ul>
-      </nav>
-      <div class="header-cta">
-        <h1 class="header-cta-h1">
-          When <span class="header-cta-h1-span">banking </span>meets
-          <span class="header-cta-h1-span">minimilist</span>
-        </h1>
-        <h4 class="header-cta-h4">A simpler banking for a simpler life.</h4>
-        <button class="header-cta-btn btn--show-modal">Open account</button>
-        <img
-          src="../src/assets/img/hero.png"
-          alt="image"
-          class="header-cta-image"
-          width="460"
-          height="369"
-        />
+
+      <div class="header-cta [ grid-auto-cta grid-cta ]">
+        <div class="header-cta-title [ flex-column flex-align-center ]">
+          <h1 class="header-cta-h1">
+            When <span class="header-cta-h1-highlight">banking </span>meets
+            <span class="header-cta-h1-highlight">minimilist</span>
+          </h1>
+          <h4 class="header-cta-h4">A simpler banking for a simpler life.</h4>
+          <a href="#" class="header-cta-btn btn--show-modal">Open account</a>
+          <a href="#section-features" class="header-cta-learnmore [ hidden ]"
+            >Learn more &downarrow;</a
+          >
+        </div>
+
+        <div class="header-cta-img [ flex-column flex-stretch ]">
+          <img src="../src/assets/img/hero.png" alt="image" class="hero-img" />
+        </div>
       </div>
     </header>
 
     <main>
-      <section class="section [ pad-sm ]" id="section-features">
-        <div class="section-title">
+      <section
+        class="section [ pad-sm ] [ flex-column flex-align-center ]"
+        id="section-features"
+      >
+        <div class="section-title [ title-space ]">
           <h2 class="section-description">Features</h2>
           <h3 class="section-heading">
             Everything you need in a modern bank and more.
@@ -139,7 +157,7 @@
         </div>
       </section>
       <section class="section [ pad-sm ]" id="section-operations">
-        <div class="section-title">
+        <div class="section-title [ title-space ]">
           <h2 class="section-description">Operations</h2>
           <h3 class="section-header">
             Everything as simple as possible, but no simpler.
@@ -224,7 +242,7 @@
         </div>
       </section>
       <section class="section [ pad-sm ]" id="section-testimonials">
-        <div class="section-title">
+        <div class="section-title [ title-space ]">
           <h2 class="section-description">Not sure yet?</h2>
           <h3 class="section-header">
             Millions of Bankists are already making their lifes simpler.
@@ -314,7 +332,7 @@
         </div>
       </section>
       <section class="section section--sign-up [ pad-md ]">
-        <div class="section-title">
+        <div class="section-title [ title-space ]">
           <h3 class="section-header">
             The best day to join Bankist was one year ago. The second best is
             today!

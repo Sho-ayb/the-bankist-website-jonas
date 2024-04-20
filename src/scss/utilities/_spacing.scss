@@ -1,7 +1,7 @@
 @use "../base/variables" as variables;
 
 .pad-body {
-  padding: 0 variables.$spacing-2xl;
+  padding: 0 calc(variables.$spacing-sm + 1.5vw);
 }
 
 .pad-xs {
@@ -44,4 +44,19 @@
 
 .mar-xl {
   margin: variables.$spacing-xl;
+}
+
+.margin-inline {
+  margin-inline: auto;
+}
+
+.max-width {
+  max-width: 100%;
+}
+
+// Title utilities
+
+.title-space {
+  max-width: calc(variables.$spacing-2xl * 26.66);
+  margin-bottom: calc(variables.$spacing-xl + 0.5vw);
 }

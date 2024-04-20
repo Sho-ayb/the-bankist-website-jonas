@@ -3,24 +3,22 @@
 @use "base/reset";
 @use "base/variables" as variables;
 
+// Blocks
+
+@use "blocks/anchor-links";
+@use "blocks/buttons";
+
 // Compositions
 
-@use "compositions/grid-auto.scss";
+@use "compositions/grid-flow";
+@use "compositions/flex-flow";
 
 // Components
 
 @use "components/header";
+@use "components/main";
 
 // Utilities
 
 @use "utilities/spacing";
-
-// Global Styles
-
-main .section {
-  border-top: 1px solid variables.$color-border;
-
-  @media (min-width: 48rem) {
-    padding: calc(variables.$spacing-2xl * 3) variables.$spacing-2xl;
-  }
-}
+@use "utilities/visually-hidden";

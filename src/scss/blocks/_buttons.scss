@@ -1,0 +1,52 @@
+@use "../base/variables" as variables;
+
+// Mixin for button
+@mixin button($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: variables.$spacing-2xl;
+}
+
+// Button in nav menu
+
+.header {
+  &-cta {
+    &-btn {
+      @media (width >= 48rem) {
+        display: none;
+      }
+    }
+
+    &-btn:link,
+    &-btn:visited {
+      @include button(variables.$color-primary, variables.$color-text-btn);
+
+      padding: 0.5em 1.3em;
+      text-decoration: none;
+    }
+
+    &-btn:hover,
+    &-btn:active {
+      background-color: variables.$color-primary-darker;
+    }
+  }
+
+  &-nav {
+    &-menu {
+      &-links {
+        &--btn:link,
+        &--btn:visited {
+          @include button(variables.$color-primary, variables.$color-text-btn);
+
+          padding: 0.5em 0.8em;
+        }
+
+        &--btn:hover,
+        &--btn:active {
+          background-color: variables.$color-primary-darker;
+        }
+      }
+    }
+  }
+}

@@ -15,7 +15,6 @@ module.exports = {
       webSocketTransport: 'ws',
     },
     webSocketServer: 'ws',
-    headers: { 'Access-Control-Allow-Origin': '*' },
     hot: false,
     port: 9000,
     compress: true,

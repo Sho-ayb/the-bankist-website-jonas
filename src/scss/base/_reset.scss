@@ -34,17 +34,19 @@ dd {
 /* Set core root defaults */
 html {
   scroll-behavior: smooth;
-  font-size: variables.$root-font-size;
 }
 
 /* Set core body defaults */
 body {
+  max-width: 100%;
   min-height: 100vh;
   text-rendering: optimizespeed;
   line-height: 1.5;
+  font-size: variables.$root-font-size;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   color: #444;
+  overflow-x: hidden;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */

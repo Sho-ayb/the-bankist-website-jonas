@@ -1,0 +1,19 @@
+// Visually hides items but still allows them to be accessed by a user with a screen reader for accessibility purposes.
+
+.visually-hidden {
+  @media (width < 48rem) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}

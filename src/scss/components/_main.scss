@@ -1,1 +1,9 @@
-/* stylelint-disable */
+@use "../base/variables" as variables;
+
+main .section {
+  border-top: 1px solid variables.$color-border;
+
+  @media (min-width: 48rem) {
+    padding: calc(variables.$spacing-2xl * 3) variables.$spacing-2xl;
+  }
+}

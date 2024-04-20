@@ -1,0 +1,53 @@
+@use "../base/variables" as variables;
+
+// Mixin
+
+@mixin links($bg-color, $color) {
+  list-style: none;
+  background-color: $bg-color;
+  color: $color;
+}
+
+.header {
+  &-cta {
+    &-learnmore {
+      display: inline-block;
+      font-size: variables.$font-size-lg;
+      font-weight: 500;
+      color: variables.$color-primary;
+      text-decoration: none;
+      border: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 2px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+  }
+
+  &-nav {
+    &-menu {
+      margin-inline: variables.$spacing-lg;
+
+      &-list {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+      }
+
+      &-items {
+        margin-left: calc(variables.$spacing-md + 1vw);
+      }
+
+      &-links:link,
+      &-links:visited {
+        font-size: variables.$font-size-lg;
+        font-weight: 400;
+        color: inherit;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
