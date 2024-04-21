@@ -4,8 +4,36 @@
 @mixin button($bg-color, $text-color) {
   background-color: $bg-color;
   color: $text-color;
+  text-decoration: none;
   border: none;
   border-radius: variables.$spacing-2xl;
+  font-size: variables.$font-size-md;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+// .btn:link,
+// .btn:visited {
+//   @include button(variables.$color-primary, variables.$color-text-btn);
+// }
+
+// .btn:hover,
+// .btn:active {
+//   background-color: variables.$color-primary-darker;
+// }
+
+.btn {
+  @include button(variables.$color-primary, variables.$color-text-btn);
+}
+
+.btn:hover {
+  background-color: variables.$color-primary-darker;
+}
+
+.btn:focus {
+  outline: none;
 }
 
 // Button in nav menu
@@ -13,6 +41,7 @@
 .header {
   &-cta {
     &-btn {
+      padding: 0.5em 1.3em;
       @media (width >= 48rem) {
         display: none;
       }
@@ -21,9 +50,6 @@
     &-btn:link,
     &-btn:visited {
       @include button(variables.$color-primary, variables.$color-text-btn);
-
-      padding: 0.5em 1.3em;
-      text-decoration: none;
     }
 
     &-btn:hover,
@@ -47,6 +73,43 @@
           background-color: variables.$color-primary-darker;
         }
       }
+    }
+  }
+}
+
+// Buttons in Operations section
+
+.operations {
+  &-tab {
+    padding: 0.5em 1.3em;
+
+    &--1 {
+      @include button(variables.$color-secondary, variables.$color-text-btn);
+    }
+
+    &--1:hover {
+      background-color: variables.$color-secondary-darker;
+    }
+
+    &--3 {
+      @include button(variables.$color-tertiary, variables.$color-text-btn);
+    }
+
+    &--3:hover {
+      background-color: variables.$color-tertiary-darker;
+    }
+  }
+
+  &-tabs {
+    button {
+      flex: 1 1 50%;
+      text-align: center;
+    }
+
+    span {
+      display: inline-block;
+      margin-right: variables.$spacing-sm;
+      font-weight: 600;
     }
   }
 }

@@ -82,10 +82,8 @@
         <div
           class="section-title [ flex-column flex-align-center ] [ title-space ]"
         >
-          <h2 class="section-description [ d-flex flex-align-center ]">
-            Features
-          </h2>
-          <h3 class="section-heading [ d-flex flex-align-center ]">
+          <h2 class="section-description [ flex-align-center ]">Features</h2>
+          <h3 class="section-heading">
             Everything you need in a modern bank and more.
           </h3>
         </div>
@@ -165,7 +163,11 @@
                 </div>
 
                 <div class="features-content">
-                  <h5 class="features-card-header">Free debit card included</h5>
+                  <h5
+                    class="features-card-header [ flex-column flex-align-center ]"
+                  >
+                    Free debit card included
+                  </h5>
                   <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Saepe facere repudiandae inventore aliquam aperiam dolor
@@ -185,14 +187,17 @@
         class="section [ pad-sm ] [ grid-section ]"
         id="section-operations"
       >
-        <div class="section-title [ title-space ]">
-          <h2 class="section-description">Operations</h2>
+        <div
+          class="section-title [ flex-column flex-align-center ] [ title-space ]"
+        >
+          <h2 class="section-description [ flex-align-center ]">Operations</h2>
           <h3 class="section-heading">
             Everything as simple as possible, but no simpler.
           </h3>
         </div>
-        <div class="operations">
-          <div class="operations-tabs">
+        <div class="operations [ grid-op ]">
+          <!-- Op tab 1 -->
+          <div class="operations-tabs [ flex-column ]">
             <button
               class="btn operations-tab operations-tab--active operations-tab--1"
               data-tab="1"
@@ -226,9 +231,10 @@
               pariatur in.
             </p>
           </div>
-          <div
-            class="operations-content operations-content--2 operations-content--active"
-          >
+
+          <!-- Op tab 2 -->
+
+          <div class="operations-content operations-content--2">
             <div class="operations-icon operations-icon--2">
               <svg>
                 <use xlink:href="../src/assets/img/icons.svg#icon-home"></use>
@@ -246,9 +252,10 @@
               pariatur in.
             </p>
           </div>
-          <div
-            class="operations-content operations-content--3 operations-content--active"
-          >
+
+          <!-- Op tab 3 -->
+
+          <div class="operations-content operations-content--3">
             <div class="operations-icon operations-icon--3">
               <svg>
                 <use xlink:href="../src/assets/img/icons.svg#icon-user-x"></use>
