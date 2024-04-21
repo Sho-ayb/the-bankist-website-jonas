@@ -13,23 +13,33 @@ main {
     }
 
     &-heading {
-      font-size: clamp(1.5rem, 3.5vw, 4rem);
-      font-weight: 600;
+      font-size: clamp(1.5rem, calc(1.5rem + 1.5vw), 4rem);
+      font-weight: 500;
     }
 
     @media (width >= 48rem) {
       padding: calc(variables.$spacing-2xl * 3) variables.$spacing-2xl;
 
       &-title {
-        margin: 0 0 5em 0;
-        grid-row: 1;
+        width: 100%;
+        grid-row: 1 / 1;
+        grid-column: 1 / 2;
       }
     }
   }
 
+  // Features
+
   .features {
+    grid-row: 2;
+
     &-card {
       width: 100%;
+
+      &-header {
+        font-size: variables.$font-size-xl;
+        font-weight: 700;
+      }
     }
 
     &-img {
@@ -53,10 +63,11 @@ main {
     }
 
     &-icon {
-      width: variables.$font-size-8xl;
-      height: variables.$font-size-8xl;
+      width: variables.$spacing-2xl;
+      height: variables.$spacing-2xl;
       background-color: variables.$color-primary-opacity;
       border-radius: 50%;
+      justify-content: center;
       align-items: center;
 
       svg {
@@ -66,4 +77,6 @@ main {
       }
     }
   }
+
+  // Operations
 }

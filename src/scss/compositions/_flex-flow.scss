@@ -7,6 +7,13 @@
   }
 }
 
+.flex-row {
+  @media (width >= 48rem) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
 .flex-align-center {
   justify-content: center;
   align-items: center;
@@ -17,17 +24,18 @@
   }
 }
 
-.flex-row {
-  @media (width >= 48rem) {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
 .flex-stretch {
   align-items: stretch;
 }
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-grow {
+  flex-grow: 1;
 }

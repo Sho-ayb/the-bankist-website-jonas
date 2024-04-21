@@ -15,7 +15,7 @@
     <title>The Bankist Website</title>
   </head>
   <body class="[ pad-body margin-inline ]">
-    <header class="header [ grid-header ]">
+    <header class="header [ grid-section ]">
       <div class="header-nav">
         <div class="header-nav-logo">
           <img
@@ -53,7 +53,7 @@
         </nav>
       </div>
 
-      <div class="header-cta [ grid-auto-cta grid-cta ]">
+      <div class="header-cta [ grid-section grid-cta ]">
         <div class="header-cta-title [ flex-column flex-align-center ]">
           <h1 class="header-cta-h1">
             When <span class="header-cta-h1-highlight">banking </span>meets
@@ -73,13 +73,19 @@
     </header>
 
     <main>
+      <!-- Features -->
+
       <section
-        class="section [ pad-sm ] [ grid-features ]"
+        class="section [ pad-sm ] [ grid-section ]"
         id="section-features"
       >
-        <div class="section-title [ title-space ]">
-          <h2 class="section-description">Features</h2>
-          <h3 class="section-heading">
+        <div
+          class="section-title [ flex-column flex-align-center ] [ title-space ]"
+        >
+          <h2 class="section-description [ d-flex flex-align-center ]">
+            Features
+          </h2>
+          <h3 class="section-heading [ d-flex flex-align-center ]">
             Everything you need in a modern bank and more.
           </h3>
         </div>
@@ -94,38 +100,44 @@
             </div>
             <div class="features-card">
               <div class="features-feature [ flex-column flex-align-center ]">
-                <div class="features-icon [ flex-column flex-align-center ]">
+                <div class="features-icon [ flex-column ]">
                   <svg>
                     <use
                       xlink:href="../src/assets/img/icons.svg#icon-monitor"
                     ></use>
                   </svg>
                 </div>
-                <h5 class="features-card-header">100% digital bank</h5>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Veniam, sit impedit voluptatem enim minus esse corporis
-                  suscipit deserunt illum, totam qui quod error consectetur!
-                  Harum!
-                </p>
+
+                <div class="features-content [ flex-column flex-align-center ]">
+                  <h5 class="features-card-header">100% digital bank</h5>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Veniam, sit impedit voluptatem enim minus esse corporis
+                    suscipit deserunt illum, totam qui quod error consectetur!
+                    Harum!
+                  </p>
+                </div>
               </div>
             </div>
             <div class="features-card">
               <div class="features-feature [ flex-column flex-align-center ]">
-                <div class="features-icon [ flex-column flex-align-center ]">
+                <div class="features-icon [ flex-column ]">
                   <svg>
                     <use
                       xlink:href="../src/assets/img/icons.svg#icon-trending-up"
                     ></use>
                   </svg>
                 </div>
-                <h5 class="features-card-header">Watch your money grow</h5>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Saepe facere repudiandae inventore aliquam aperiam dolor
-                  corrupti accusantium reprehenderit sit eaque. Rerum nisi
-                  consequuntur iste id!
-                </p>
+
+                <div class="features-content [ flex-column flex-align-center ]">
+                  <h5 class="features-card-header">Watch your money grow</h5>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Saepe facere repudiandae inventore aliquam aperiam dolor
+                    corrupti accusantium reprehenderit sit eaque. Rerum nisi
+                    consequuntur iste id!
+                  </p>
+                </div>
               </div>
             </div>
             <div class="features-card">
@@ -144,26 +156,35 @@
             </div>
             <div class="features-card">
               <div class="features-feature [ flex-column flex-align-center ]">
-                <div class="features-icon [ flex-column flex-align-center ]">
+                <div class="features-icon [ flex-column ]">
                   <svg>
                     <use
                       xlink:href="../src/assets/img/icons.svg#icon-credit-card"
                     ></use>
                   </svg>
                 </div>
-                <h5 class="features-card-header">Free debit card included</h5>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Saepe facere repudiandae inventore aliquam aperiam dolor
-                  corrupti accusantium reprehenderit sit eaque. Rerum nisi
-                  consequuntur iste id!
-                </p>
+
+                <div class="features-content">
+                  <h5 class="features-card-header">Free debit card included</h5>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Saepe facere repudiandae inventore aliquam aperiam dolor
+                    corrupti accusantium reprehenderit sit eaque. Rerum nisi
+                    consequuntur iste id!
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="section [ pad-sm ]" id="section-operations">
+
+      <!-- Operations -->
+
+      <section
+        class="section [ pad-sm ] [ grid-section ]"
+        id="section-operations"
+      >
         <div class="section-title [ title-space ]">
           <h2 class="section-description">Operations</h2>
           <h3 class="section-heading">
@@ -338,6 +359,9 @@
           <div class="dots"></div>
         </div>
       </section>
+
+      <!-- Sign Up -->
+
       <section class="section section--sign-up [ pad-md ]">
         <div class="section-title [ title-space ]">
           <h3 class="section-heading">
@@ -350,6 +374,9 @@
         </div>
       </section>
     </main>
+
+    <!-- Footer -->
+
     <footer>
       <ul class="footer-nav">
         <li class="footer-item">
@@ -404,6 +431,7 @@
     </footer>
 
     <!-- Modal  window for opening an account -->
+
     <div class="modal hidden">
       <button class="btn--close-modal">&times;</button>
       <h2 class="modal-header">
