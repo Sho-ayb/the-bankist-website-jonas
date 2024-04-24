@@ -11,7 +11,7 @@
 .grid-op {
   display: grid;
   grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr;
+  grid-template-columns: fit-content(1000px);
 }
 
 // Desktop view > 768px

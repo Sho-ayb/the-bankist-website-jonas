@@ -1,21 +1,26 @@
 @use "../base/variables" as variables;
 
 // Mixin for button
-@mixin button($bg-color, $text-color) {
+@mixin button($bg-color, $text-color, $font-size, $font-weight) {
   background-color: $bg-color;
   color: $text-color;
   text-decoration: none;
   border: none;
   border-radius: variables.$spacing-2xl;
-  font-size: variables.$font-size-md;
+  font-size: $font-size;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: $font-weight;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .btn {
-  @include button(variables.$color-primary, variables.$color-text-btn);
+  @include button(
+    variables.$color-primary,
+    variables.$color-text-btn,
+    variables.$font-size-md,
+    500
+  );
 }
 
 .btn:hover {
@@ -39,7 +44,12 @@
 
     &-btn:link,
     &-btn:visited {
-      @include button(variables.$color-primary, variables.$color-text-btn);
+      @include button(
+        variables.$color-primary,
+        variables.$color-text-btn,
+        variables.$font-size-md,
+        500
+      );
     }
 
     &-btn:hover,
@@ -53,7 +63,12 @@
       &-links {
         &--btn:link,
         &--btn:visited {
-          @include button(variables.$color-primary, variables.$color-text-btn);
+          @include button(
+            variables.$color-primary,
+            variables.$color-text-btn,
+            variables.$font-size-md,
+            500
+          );
 
           padding: 0.5em 0.8em;
         }
@@ -71,22 +86,39 @@
 
 .operations {
   &-tab {
+    font-weight: 600;
     padding: 0.5em 1.3em;
 
     &--1 {
-      @include button(variables.$color-secondary, variables.$color-text-btn);
+      @include button(
+        variables.$color-secondary,
+        variables.$color-text-btn,
+        variables.$font-size-md,
+        600
+      );
     }
 
     &--1:hover {
       background-color: variables.$color-secondary-darker;
+      transform: translateY(-10px);
+    }
+
+    &--2:hover {
+      transform: translateY(-10px);
     }
 
     &--3 {
-      @include button(variables.$color-tertiary, variables.$color-text-btn);
+      @include button(
+        variables.$color-tertiary,
+        variables.$color-text-btn,
+        variables.$font-size-md,
+        600
+      );
     }
 
     &--3:hover {
       background-color: variables.$color-tertiary-darker;
+      transform: translateY(-10px);
     }
   }
 
