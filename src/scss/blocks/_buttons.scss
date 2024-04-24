@@ -14,16 +14,6 @@
   transition: all 0.3s;
 }
 
-// .btn:link,
-// .btn:visited {
-//   @include button(variables.$color-primary, variables.$color-text-btn);
-// }
-
-// .btn:hover,
-// .btn:active {
-//   background-color: variables.$color-primary-darker;
-// }
-
 .btn {
   @include button(variables.$color-primary, variables.$color-text-btn);
 }
@@ -102,7 +92,6 @@
 
   &-tabs {
     button {
-      flex: 1 1 50%;
       text-align: center;
     }
 

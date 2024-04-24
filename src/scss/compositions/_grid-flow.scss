@@ -10,7 +10,7 @@
 
 .grid-op {
   display: grid;
-  grid-template-rows: 0.5fr 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-columns: 1fr;
 }
 
