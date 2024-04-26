@@ -8,10 +8,20 @@
   grid-template-columns: 1fr;
 }
 
+// Operations
+
 .grid-op {
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: fit-content(1000px);
+}
+
+// Testimonials
+
+.grid-testimonials {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
 }
 
 // Desktop view > 768px
@@ -39,5 +49,3 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-
-// Operations

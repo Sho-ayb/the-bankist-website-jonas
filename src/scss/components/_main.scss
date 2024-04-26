@@ -136,4 +136,51 @@ main {
       }
     }
   }
+
+  // Testimonials
+
+  .slider {
+    position: relative;
+    max-width: 100rem;
+    height: 25rem;
+
+    &-btn {
+      display: none;
+    }
+
+    @media (min-width: 48rem) {
+      &-btn {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &--left {
+          left: 1rem;
+        }
+
+        &--right {
+          right: 1rem;
+        }
+      }
+    }
+  }
+
+  .slide-container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
