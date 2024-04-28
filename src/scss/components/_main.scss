@@ -141,10 +141,7 @@ main {
 
   .slider {
     position: relative;
-    max-width: 100rem;
-    min-height: 37rem;
-    overflow: hidden;
-    margin: 0 auto;
+    min-height: 45rem;
 
     display: flex;
     justify-content: center;
@@ -177,10 +174,10 @@ main {
 
   .slide-container {
     width: 100%;
-    min-height: 50rem;
+    min-height: 45rem;
     position: relative;
 
-    @media (width >= 48rem) {
+    @media (min-width: 48rem) {
       width: 80%;
       margin: 0 auto;
     }
@@ -192,9 +189,19 @@ main {
     bottom: 0;
     width: 100%;
     min-height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-align: start;
+
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+
+    @media (min-width: 48rem) {
+      align-items: center;
+    }
 
     // testimonials
 
