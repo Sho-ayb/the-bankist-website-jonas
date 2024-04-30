@@ -206,6 +206,9 @@ main {
     // testimonials
 
     .testimonial {
+      width: 65%;
+      position: relative;
+
       &-header {
         grid-row: 1 / 2;
         grid-column: 1 / 2;
@@ -249,6 +252,17 @@ main {
         grid-column: 2 / 3;
         font-size: variables.$font-size-md;
       }
+    }
+
+    .testimonial::before {
+      content: "\201C";
+      position: absolute;
+      top: -2rem;
+      left: -7rem;
+      line-height: 1;
+      font-size: 20rem;
+      color: variables.$color-primary;
+      z-index: -1;
     }
   }
 }
