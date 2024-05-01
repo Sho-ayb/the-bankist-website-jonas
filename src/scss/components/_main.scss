@@ -142,7 +142,6 @@ main {
   .slider {
     position: relative;
     min-height: 45rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,12 +150,11 @@ main {
       display: none;
     }
 
-    @media (min-width: 48rem) {
+    @media (width >= 48rem) {
       &-btn {
         display: block;
         position: absolute;
         top: 50%;
-
         z-index: 10;
 
         &--left {
@@ -177,7 +175,7 @@ main {
     min-height: 45rem;
     position: relative;
 
-    @media (min-width: 48rem) {
+    @media (width >= 48rem) {
       width: 80%;
       margin: 0 auto;
     }
@@ -194,12 +192,11 @@ main {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scroll-snap-align: start;
-
     display: flex;
     justify-content: center;
     align-items: flex-start;
 
-    @media (min-width: 48rem) {
+    @media (width >= 48rem) {
       align-items: center;
     }
 
@@ -263,6 +260,29 @@ main {
       font-size: 20rem;
       color: variables.$color-primary;
       z-index: -1;
+    }
+  }
+
+  // Sign up - has exception to section-title and section-heading
+
+  #section-sign-up {
+    background-color: variables.$color-background-sign-up;
+    border-top: none;
+    border-bottom: 1px solid variables.$color-border-dark;
+
+    justify-content: center;
+    align-items: center;
+
+    .section-title {
+      color: variables.$color-text-fff;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .section-heading {
+      @media (min-width: 48rem) {
+        text-align: center;
+      }
     }
   }
 }
