@@ -32,6 +32,14 @@
   column-gap: 1rem;
 }
 
+//  Footer
+
+.grid-footer {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-columns: 1fr;
+}
+
 // Desktop view > 768px
 
 // Header
