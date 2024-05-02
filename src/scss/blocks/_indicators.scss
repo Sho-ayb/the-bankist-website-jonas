@@ -4,7 +4,7 @@ main {
   .slider {
     .indicators {
       position: absolute;
-      bottom: 15%;
+      bottom: 6%;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -19,6 +19,10 @@ main {
         margin-right: variables.$spacing-lg;
         cursor: pointer;
         transition: all 0.5s;
+      }
+
+      @media (min-width: 48rem) {
+        bottom: -7%;
       }
     }
   }
