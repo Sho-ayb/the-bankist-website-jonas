@@ -3,7 +3,7 @@
 .pad-body {
   padding: 0 calc(variables.$spacing-sm + 1.5vw);
 
-  @media (min-width: 1250px) {
+  @media (min-width: 78.125rem) {
     padding: 0;
   }
 }
