@@ -2,6 +2,10 @@
 
 .pad-body {
   padding: 0 calc(variables.$spacing-sm + 1.5vw);
+
+  @media (min-width: 1250px) {
+    padding: 0;
+  }
 }
 
 .pad-xs {
