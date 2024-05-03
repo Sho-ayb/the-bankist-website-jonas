@@ -1,5 +1,7 @@
 // Visually hides items but still allows them to be accessed by a user with a screen reader for accessibility purposes.
 
+// This class is applied on to nav menu
+
 .visually-hidden {
   @media (width < 48rem) {
     position: absolute;
@@ -14,6 +16,8 @@
   }
 }
 
-.hidden {
-  display: none;
-}
+// This is applied on to modal and overlay
+
+// .hidden {
+//   display: none;
+// }

@@ -20,8 +20,9 @@
 @use "components/header";
 @use "components/main";
 @use "components/footer";
+@use "components/modal";
+@use "components/overlay";
 
 // Utilities
-
 @use "utilities/spacing";
 @use "utilities/visually-hidden";

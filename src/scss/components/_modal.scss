@@ -1,0 +1,65 @@
+@use "../base/variables" as variables;
+
+body {
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: variables.$color-background;
+    padding: 4rem 4rem;
+    box-shadow: 0 4rem 6rem rgb(0 0 0 / 30%);
+    z-index: 1000;
+    transition: all 0.5s;
+
+    .btn-close-modal {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      font-family: inherit;
+      font-size: variables.$font-size-6xl;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    &-header {
+      font-size: variables.$font-size-xl;
+      margin-bottom: variables.$spacing-2xl;
+      line-height: 1.5;
+    }
+
+    &-form {
+      margin: 0 2em;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: variables.$spacing-md;
+      align-items: center;
+
+      @media (min-width: 48rem) {
+        grid-template-columns: 1fr 2fr;
+      }
+
+      label {
+        font-size: variables.$font-size-lg;
+      }
+
+      input {
+        font-size: variables.$font-size-lg;
+        padding: 0.5rem;
+        border: 1px solid variables.$color-border;
+        border-radius: 0.5rem;
+      }
+
+      button {
+        padding: variables.$spacing-sm variables.$spacing-lg;
+        margin-top: variables.$spacing-lg;
+
+        @media (min-width: 48rem) {
+          grid-column: -2 / -1;
+          justify-self: end;
+        }
+      }
+    }
+  }
+}
