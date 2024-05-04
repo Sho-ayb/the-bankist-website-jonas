@@ -18,17 +18,26 @@
     <header class="header [ grid-section ]">
       <!-- When the viewport width is < 768px and the menu button is clicked  -->
 
-      <div class="header-nav-mobile">
-        <div class="header-nav-mobile-logo">
-          <img
-            src="../src/assets/img/logo.png"
-            alt="Bankist logo"
-            class="logo"
-          />
+      <div class="nav-wrapper [ grid-section ]">
+        <div class="header-nav-mobile">
+          <div class="header-nav-mobile-logo">
+            <img
+              src="../src/assets/img/logo.png"
+              alt="Bankist logo"
+              class="logo"
+            />
+          </div>
+          <button>
+            <i class="bx bx-x bx-sm"></i>
+          </button>
         </div>
-        <button>
-          <i class="bx bx-x bx-sm"></i>
-        </button>
+        <div class="mobile-menu">
+          <ul class="menu-list">
+            <li><a href="#section-features">Features</a></li>
+            <li><a href="#section-operations">Operations</a></li>
+            <li><a href="#section-testimonials">Testimonials</a></li>
+          </ul>
+        </div>
       </div>
 
       <!-- When the viewport width is >= 768px -->
@@ -47,15 +56,17 @@
         <nav class="header-nav-menu [ visually-hidden ]">
           <ul class="header-nav-menu-list">
             <li class="header-nav-menu-items">
-              <a href="" class="header-nav-menu-links">Features</a>
-            </li>
-            <li class="header-nav-menu-items">
               <a href="#section-features" class="header-nav-menu-links"
-                >Operations</a
+                >Features</a
               >
             </li>
             <li class="header-nav-menu-items">
               <a href="#section-operations" class="header-nav-menu-links"
+                >Operations</a
+              >
+            </li>
+            <li class="header-nav-menu-items">
+              <a href="#section-testimonials" class="header-nav-menu-links"
                 >Testimonials</a
               >
             </li>
