@@ -30,8 +30,10 @@
     }
 
     button {
-      font-size: variables.$font-size-lg;
+      font-size: variables.$font-size-3xl;
       margin-inline: variables.$spacing-md;
+      border: none;
+      background-color: transparent;
     }
 
     @media (width >= 48rem) {

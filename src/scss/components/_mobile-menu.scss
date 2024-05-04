@@ -1,0 +1,37 @@
+@use "../base/variables" as variables;
+
+.header {
+  &-nav-mobile {
+    max-width: 100%;
+    min-height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(variables.$spacing-sm + 1vw) calc(variables.$spacing-sm + 1vw);
+
+    // Sizing the logo
+    &-logo {
+      width: variables.$logo-width;
+      min-height: fit-content;
+      padding: 0 0.5em;
+
+      > .logo {
+        height: 4.5rem;
+        object-fit: contain;
+      }
+    }
+
+    button {
+      font-size: variables.$font-size-3xl;
+      margin-inline: variables.$spacing-md;
+      border: none;
+      background-color: transparent;
+
+      > i {
+        padding: 0.25em;
+        border: 0.07em solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+      }
+    }
+  }
+}

@@ -16,6 +16,23 @@
   </head>
   <body class="[ pad-body margin-inline ]">
     <header class="header [ grid-section ]">
+      <!-- When the viewport width is < 768px and the menu button is clicked  -->
+
+      <div class="header-nav-mobile">
+        <div class="header-nav-mobile-logo">
+          <img
+            src="../src/assets/img/logo.png"
+            alt="Bankist logo"
+            class="logo"
+          />
+        </div>
+        <button>
+          <i class="bx bx-x bx-sm"></i>
+        </button>
+      </div>
+
+      <!-- When the viewport width is >= 768px -->
+
       <div class="header-nav">
         <div class="header-nav-logo">
           <img
@@ -25,7 +42,7 @@
           />
         </div>
         <button>
-          <i class="bx bx-menu bx-border-circle"></i>
+          <i class="bx bx-menu bx-border-circle bx-sm"></i>
         </button>
         <nav class="header-nav-menu [ visually-hidden ]">
           <ul class="header-nav-menu-list">
