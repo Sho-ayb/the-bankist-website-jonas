@@ -8,7 +8,10 @@
     min-width: 100vw;
     min-height: 100vh;
     transform: translateX(-100%);
-    transition: transform 0.3s ease-in;
+    transition: transform 0.2s ease-in;
+    background-color: variables.$color-background;
+    z-index: 1000;
+    overflow: hidden;
   }
 
   &-nav-mobile {
@@ -39,7 +42,7 @@
 
       > i {
         padding: 0.25em;
-        border: 0.07em solid rgba(0, 0, 0, 0.1);
+        border: 0.07em solid rgb(0 0 0 / 10%);
         border-radius: 50%;
       }
     }

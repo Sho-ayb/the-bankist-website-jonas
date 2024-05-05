@@ -17,7 +17,7 @@
       color: variables.$color-primary;
       text-decoration: none;
       border: none;
-      border-bottom: 1px solid currentColor;
+      border-bottom: 1px solid currentcolor;
       padding-bottom: 2px;
       cursor: pointer;
       transition: all 0.3s;
@@ -47,6 +47,34 @@
         text-decoration: none;
         display: inline-block;
         transition: all 0.3s;
+      }
+    }
+  }
+
+  // Mobile menu
+  .mobile-menu {
+    justify-content: center;
+    align-items: center;
+
+    &-list {
+      padding: 1em;
+      font-size: 2rem;
+      text-align: center;
+
+      > li {
+        > a {
+          text-decoration: none;
+          color: variables.$color-primary;
+        }
+
+        > a:hover,
+        a:active {
+          color: variables.$color-primary-darker;
+        }
+      }
+
+      > li:not(:last-child) {
+        margin-bottom: 0.5em;
       }
     }
   }
