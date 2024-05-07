@@ -24,15 +24,30 @@ const btnClose = document.getElementById('btnClose');
 const mobileNav = document.querySelector('.nav-wrapper');
 
 const showMobileNav = () => {
-  mobileNav.style.transform = 'translateX(0%)';
-  btnOpen.setAttribute('aria-expanded', 'true');
-  btnClose.setAttribute('aria-expanded', 'true');
+  // mobileNav.style.transform = 'translateX(0%)';
+
+  // Rather than overriding the current CSS styles using the inline style above, lets first: using the following methods to getComputedStyle and getPropertyValue to check the value before making the modification
+
+  const computedStyle = window.getComputedStyle(mobileNav);
+  const currentTransform = computedStyle.getPropertyValue('transform');
+
+  if (currentTransform.includes('matrix(1, 0, 0, 1, -')) {
+    mobileNav.style.transform = 'translateX(0%)';
+
+    btnOpen.setAttribute('aria-expanded', 'true');
+    btnClose.setAttribute('aria-expanded', 'true');
+  }
 };
 
 const hideMobileMenu = () => {
-  mobileNav.style.transform = 'translateX(-100%)';
-  btnOpen.setAttribute('aria-expanded', 'false');
-  btnClose.setAttribute('aria-expanded', 'false');
+  const computedStyle = window.getComputedStyle(mobileNav);
+  const currentTransform = computedStyle.getPropertyValue('transform');
+
+  if (currentTransform.includes('matrix(1, 0, 0, 1, 0')) {
+    mobileNav.style.transform = 'translateX(-100%)';
+    btnOpen.setAttribute('aria-expanded', 'false');
+    btnClose.setAttribute('aria-expanded', 'false');
+  }
 };
 
 btnOpen.addEventListener('click', () => {
@@ -43,5 +58,8 @@ btnOpen.addEventListener('click', () => {
 });
 
 btnClose.addEventListener('click', () => {
-  hideMobileMenu();
+  const isClosed = btnClose.getAttribute('aria-expanded');
+  if (isClosed === 'true') {
+    hideMobileMenu();
+  }
 });
