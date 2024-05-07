@@ -17,9 +17,31 @@ import featuresIconMonitor from '../assets/img/icons.svg';
 
 console.log('Webpack is serving!');
 
-console.log(`I am testing if this template literal works with prettier`); // there was no error as the above with prettier
+// Selecting elements on page
 
-console.log(
-  `Testing if babel works by using a template literal because es5 does not support template literals. 
-  If babel is transpiling correct than this statement will in double quotes during build`
-);
+const btnOpen = document.getElementById('btnOpen');
+const btnClose = document.getElementById('btnClose');
+const mobileNav = document.querySelector('.nav-wrapper');
+
+const showMobileNav = () => {
+  mobileNav.style.transform = 'translateX(0%)';
+  btnOpen.setAttribute('aria-expanded', 'true');
+  btnClose.setAttribute('aria-expanded', 'true');
+};
+
+const hideMobileMenu = () => {
+  mobileNav.style.transform = 'translateX(-100%)';
+  btnOpen.setAttribute('aria-expanded', 'false');
+  btnClose.setAttribute('aria-expanded', 'false');
+};
+
+btnOpen.addEventListener('click', () => {
+  const isExpanded = btnOpen.getAttribute('aria-expanded');
+  if (isExpanded === 'false') {
+    showMobileNav();
+  }
+});
+
+btnClose.addEventListener('click', () => {
+  hideMobileMenu();
+});

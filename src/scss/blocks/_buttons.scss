@@ -168,9 +168,9 @@
   &-btn {
     @include button(
       variables.$color-primary,
-      variables.$color-text-fff !important,
+      inherit !important,
       variables.$font-size-xl,
-      600
+      500
     );
 
     padding: 0.9em 4.3em;

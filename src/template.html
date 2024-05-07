@@ -18,7 +18,7 @@
     <header class="header [ grid-section ]">
       <!-- When the viewport width is < 768px and the menu button is clicked  -->
 
-      <div class="nav-wrapper [ grid-section ]">
+      <div class="nav-wrapper [ pad-body margin-inline ] [ grid-section ]">
         <div class="header-nav-mobile">
           <div class="header-nav-mobile-logo">
             <img
@@ -27,12 +27,15 @@
               class="logo"
             />
           </div>
-          <button>
+          <button id="btnClose" aria-expanded="false">
             <i class="bx bx-x bx-sm"></i>
           </button>
         </div>
-        <div class="mobile-menu [ flex-column ]">
-          <ul class="mobile-menu-list">
+        <div
+          class="mobile-menu [ flex-column ]"
+          aria-labelledby="mobile-menu-label"
+        >
+          <ul class="mobile-menu-list" role="dialog">
             <li><a href="#section-features">Features</a></li>
             <li><a href="#section-operations">Operations</a></li>
             <li><a href="#section-testimonials">Testimonials</a></li>
@@ -55,10 +58,14 @@
             class="logo"
           />
         </div>
-        <button>
+        <button
+          id="btnOpen"
+          aria-expanded="false"
+          aria-labelledby="mobile-menu-label"
+        >
           <i class="bx bx-menu bx-border-circle bx-sm"></i>
         </button>
-        <nav class="header-nav-menu [ visually-hidden ]">
+        <nav class="header-nav-menu [ visually-hidden ]" role="dialog">
           <ul class="header-nav-menu-list">
             <li class="header-nav-menu-items">
               <a href="#section-features" class="header-nav-menu-links"

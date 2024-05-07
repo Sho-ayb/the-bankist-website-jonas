@@ -34,6 +34,7 @@
       margin-inline: variables.$spacing-md;
       border: none;
       background-color: transparent;
+      cursor: pointer;
     }
 
     @media (width >= 48rem) {
