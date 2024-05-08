@@ -22,6 +22,10 @@ console.log('Webpack is serving!');
 const btnOpen = document.getElementById('btnOpen');
 const btnClose = document.getElementById('btnClose');
 const mobileNav = document.querySelector('.nav-wrapper');
+const learnMoreLink = document.querySelector('.header-cta-learnmore');
+const sectionFeatures = document.getElementById('section-features');
+
+// Mobile menu when user clicks on button when the viewport is < 768px in width
 
 const showMobileNav = () => {
   // mobileNav.style.transform = 'translateX(0%)';
@@ -62,4 +66,73 @@ btnClose.addEventListener('click', () => {
   if (isClosed === 'true') {
     hideMobileMenu();
   }
+});
+
+// Learn more anchor link should appear when the viewport is >= 768px width
+
+const checkViewportWidth = () => {
+  const viewportWidth = window.visualViewport.width;
+
+  if (viewportWidth >= 768) {
+    learnMoreLink.classList.remove('hidden');
+  } else {
+    learnMoreLink.classList.add('hidden');
+  }
+};
+
+// Invoking the function here so that the anchor link will appear if the viewport width is >= 768px in the first instance.
+
+checkViewportWidth();
+
+// Attaching an event listener so that the anchor link can be hidden when the viewport width is < 768px.
+
+window.addEventListener('resize', checkViewportWidth);
+
+// Implementing smooth scrolling to section-features
+
+/*
+
+To begin with: we will get the x and y coords using getBoundingClientRect() method, this provides us with the x and y coords of an element that is positioned on the page.
+
+
+We can then determine the x and y position plus the pageXOffset and pageYOffset to scroll the position of the page to the section-features.
+
+We will also a latest and better implementation using Element.scrollIntoView() method instead. This is because the above properties are now deprecated.
+
+
+*/
+
+learnMoreLink.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const s1coords = sectionFeatures.getBoundingClientRect();
+
+  // lets log the coords to the console: we get a DOMRect object
+
+  console.log(s1coords);
+
+  //  lets log the scroll coords also to the console: this is logged by the global window object as pageXOffset and pageYOffset
+
+  console.log(
+    'Scroll co-ordinates for (x and y): ',
+    window.pageXOffset,
+    window.pageYOffset
+  );
+
+  //  lets scroll the page to the section-features
+
+  // window.scrollTo(
+  //   s1coords.x + window.pageXOffset,
+  //   s1coords.y + window.pageYOffset
+  // );
+
+  // The above works but as said previously these props are deprecated so lets create an options object to pass in to window.scrollTo()
+
+  const options = {
+    left: s1coords.x,
+    top: s1coords.y,
+    behaviour: 'smooth',
+  };
+
+  window.scrollTo(options);
 });
