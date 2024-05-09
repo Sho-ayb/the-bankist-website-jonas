@@ -29,6 +29,7 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnOpenModal = document.querySelectorAll('.btn-show-modal');
 const btnCloseModal = document.querySelectorAll('.btn-close-modal');
+const headerNav = document.querySelector('.header-nav');
 
 // Mobile menu when user clicks on button when the viewport is < 768px in width
 
@@ -244,11 +245,30 @@ const navStyle = (e, opacity) => {
 
     // to get the specific effect we want, we need to target the siblings of target element by traversing up the dom tree
     const siblings = e.target
-      .closest('header-nav-menu')
-      .querySelector('.header-nav-menu-links');
+      .closest('.header-nav-menu-list')
+      .querySelectorAll('.header-nav-menu-links');
 
-    const logo = e.target.closest('header-nav').querySelector('.logo');
+    const logo = e.target.closest('.header-nav').querySelector('.logo');
+
+    // loop through the siblings and change the opacity
+    siblings.forEach((el) => {
+      if (el !== link) {
+        // Eslint requires param reassigned
+        const tempEl = el;
+        tempEl.style.opacity = opacity;
+      }
+    });
+
+    logo.style.opacity = opacity;
   }
 };
 
 // Adding an event listener to the nav element
+
+headerNav.addEventListener('mouseover', (e) => {
+  navStyle(e, 0.5);
+});
+
+headerNav.addEventListener('mouseout', (e) => {
+  navStyle(e, 1);
+});
