@@ -30,6 +30,9 @@ const overlay = document.querySelector('.overlay');
 const btnOpenModal = document.querySelectorAll('.btn-show-modal');
 const btnCloseModal = document.querySelectorAll('.btn-close-modal');
 const headerNav = document.querySelector('.header-nav');
+const tabs = document.querySelectorAll('.operations-tab');
+const tabContainer = document.querySelector('.operations-tabs');
+const tabsContent = document.querySelectorAll('.operations-content');
 
 // Mobile menu when user clicks on button when the viewport is < 768px in width
 
@@ -271,4 +274,36 @@ headerNav.addEventListener('mouseover', (e) => {
 
 headerNav.addEventListener('mouseout', (e) => {
   navStyle(e, 1);
+});
+
+// Building a tabbed component
+
+// Using Event delegation we can target element clicked on and add the active class to it whilst also removing it from the current active tab
+
+tabContainer.addEventListener('click', (e) => {
+  const clicked = e.target.closest('.operations-tab');
+
+  // a guard clause here to avoid recieving a null when the user clicks anywhere other than the tab
+
+  if (!clicked) return;
+
+  // remove active class
+
+  tabs.forEach((tab) => tab.classList.remove('operations-tab--active'));
+
+  // add active class to clicked tab
+
+  clicked.classList.add('operations-tab--active');
+
+  // remove active class from content
+
+  tabsContent.forEach((content) =>
+    content.classList.remove('operations-content--active')
+  );
+
+  // activate content area - using dataset
+
+  document
+    .querySelector(`.operations-content--${clicked.dataset.tab}`)
+    .classList.add('operations-content--active');
 });
