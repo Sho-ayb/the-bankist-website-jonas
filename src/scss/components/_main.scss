@@ -1,7 +1,7 @@
 @use "../base/variables" as variables;
 
 body > main {
-  @media (min-width: 78.125rem) {
+  @media (width >= 78.125rem) {
     width: 100%;
     margin: 0;
 
@@ -265,7 +265,7 @@ body > main {
       }
     }
 
-    @media (min-width: 48rem) {
+    @media (width >= 48rem) {
       .testimonial::before {
         content: "\201C";
         position: absolute;
@@ -286,7 +286,6 @@ body > main {
     background-color: variables.$color-background-sign-up;
     border-top: none;
     border-bottom: 1px solid variables.$color-border-dark;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -298,7 +297,7 @@ body > main {
     }
 
     .section-heading {
-      @media (min-width: 48rem) {
+      @media (width >= 48rem) {
         text-align: center;
       }
     }

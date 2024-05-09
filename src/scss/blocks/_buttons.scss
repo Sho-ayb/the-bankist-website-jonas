@@ -156,10 +156,8 @@
 
 .btn-sign-up {
   font-size: clamp(1rem, calc(1rem + 0.5vw), 1.75rem);
-  padding-left: clamp(0.5rem, 1.5vw, 1.25rem); /* Adjust left padding */
-  padding-right: clamp(0.5rem, 1.5vw, 1.25rem); /* Adjust right padding */
-  padding-top: clamp(0.5rem, 1.5vw, 1.25rem); /* Adjust top padding */
-  padding-bottom: clamp(0.5rem, 1.5vw, 1.25rem); /* Adjust bottom padding */
+  padding: clamp(0.5rem, 1.5vw, 1.25rem) clamp(0.5rem, 1.5vw, 1.25rem)
+    clamp(0.5rem, 1.5vw, 1.25rem) clamp(0.5rem, 1.5vw, 1.25rem); /* Adjust left padding */ /* Adjust right padding */ /* Adjust top padding */ /* Adjust bottom padding */
 }
 
 // Button in mobile menu

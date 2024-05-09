@@ -26,6 +26,7 @@
 
 .grid-testimonial-author {
   display: grid;
+
   // grid-template-rows: 51.19px 51.19px;
   grid-template-rows: 0.5fr 0.5fr;
   grid-template-columns: auto 1fr;
@@ -61,7 +62,7 @@
   grid-template-rows: auto;
   gap: variables.$spacing-xl;
 
-  @media (min-width: 48rem) {
+  @media (width >= 48rem) {
     grid-template-columns: 1fr 1fr;
   }
 }

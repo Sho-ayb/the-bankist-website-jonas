@@ -7,7 +7,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: variables.$color-background;
-    padding: 4rem 4rem;
+    padding: 4rem;
     box-shadow: 0 4rem 6rem rgb(0 0 0 / 30%);
     z-index: 1000;
     transition: all 0.5s;
@@ -36,7 +36,7 @@ body {
       gap: variables.$spacing-md;
       align-items: center;
 
-      @media (min-width: 48rem) {
+      @media (width >= 48rem) {
         grid-template-columns: 1fr 2fr;
       }
 
@@ -55,7 +55,7 @@ body {
         padding: variables.$spacing-sm variables.$spacing-lg;
         margin-top: variables.$spacing-lg;
 
-        @media (min-width: 48rem) {
+        @media (width >= 48rem) {
           grid-column: -2 / -1;
           justify-self: end;
         }

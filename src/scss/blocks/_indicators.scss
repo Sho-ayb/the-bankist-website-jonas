@@ -21,7 +21,7 @@ main {
         transition: all 0.5s;
       }
 
-      @media (min-width: 48rem) {
+      @media (width >= 48rem) {
         bottom: -7%;
       }
     }

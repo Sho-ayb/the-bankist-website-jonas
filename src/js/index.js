@@ -24,6 +24,11 @@ const btnClose = document.getElementById('btnClose');
 const mobileNav = document.querySelector('.nav-wrapper');
 const learnMoreLink = document.querySelector('.header-cta-learnmore');
 const sectionFeatures = document.getElementById('section-features');
+const headerNavMenuList = document.querySelector('.header-nav-menu-list');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnOpenModal = document.querySelector('.btn--show-modal');
+const btnCloseModal = document.querySelector('.btn--close-modal');
 
 // Mobile menu when user clicks on button when the viewport is < 768px in width
 
@@ -126,13 +131,97 @@ learnMoreLink.addEventListener('click', (e) => {
   //   s1coords.y + window.pageYOffset
   // );
 
-  // The above works but as said previously these props are deprecated so lets create an options object to pass in to window.scrollTo()
+  // As per the MDN documentation: https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo - we can also pass the coords within an options object and set its behaviour to smooth.
 
-  const options = {
-    left: s1coords.x,
-    top: s1coords.y,
-    behaviour: 'smooth',
-  };
+  /*
+  
+  Notice that we have also added the pageOffsets to the coords recieved from Element.getBoundingClientRect() method and applied it to left and top of the users viewport. The pageOffsets ensure that whereever the viewport is situated relative to the anchor link: once clicked it will scroll to section-features, since it includes the coords of (x, y) on the window object, where y is the coords at the top of the website viewport to the section-features element.
 
-  window.scrollTo(options);
+*/
+
+  // const options = {
+  //   left: s1coords.x + window.pageXOffset,
+  //   top: s1coords.y + window.pageYOffset,
+  //   behaviour: 'smooth',
+  // };
+
+  // window.scrollTo(options);
+
+  // However the above pageOffsets are now deprecated and so there is a more modern and better way of scrolling to a section that we can utilise.
+
+  sectionFeatures.scrollIntoView({ behavior: 'smooth' });
+
+  // Notice that Element.scrollIntoView: https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView - handles the pageOffsets for us, so there is no need to add them to the coords.
+});
+
+// Page Navigation
+
+/*
+
+We have implemented the scroll behaviour on to the learn more link but we also want to implement this feature on to the nav links in the header nav element when the viewport width is >= 768px. 
+
+
+With this implementation, we will be learning about Event propagation and Event delegation. 
+
+Event propagation is the process of three phases. 
+
+1. capture phase
+2. target phase 
+3. bubble phase
+
+When an event occurs (e.g. a click event), it is NOT captured at the element where the event occurred but rather at the document root and this event is trickled down to the target element where it actually occurred.
+
+During the capture phase it will note if there are any event listeners attached to any of the target elements ancestors.
+
+Once it reaches the target element, the event will bubble up to the root document element. 
+
+We will be able to see the benefit of this in the following implementation to the navigation links. 
+
+*/
+
+// Note here that we have attached an event listener to the parent element of all the anchor links
+
+headerNavMenuList.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  // lets check if the links contain the className
+  if (e.target.classList.contains('header-nav-menu-links')) {
+    // if it does we can get the id from the href attribute
+    const id = e.target.getAttribute('href');
+
+    // and then we can use the id to select the correct section and attach the Element.scrollIntoView() method
+
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+// Implementing an open modal function to open a modal when Open account buttons are clicked
+
+const openModal = (e) => {
+  e.preventDefault();
+
+  // we need to remove hidden className from the modal & overlay elements
+  modal.classList.remove('hidden');
+
+  overlay.classList.remove('hidden');
+};
+
+// We need to close the modal and overlay too
+
+const closeModal = () => {
+  modal.classList.add('hidden');
+
+  overlay.classList.add('hidden');
+};
+
+// lets loop through all the buttons that have the className of btn-show--modal/btn-close-modal and attach the event listener to them
+
+// Note that querySelectorAll returns a nodeList, which is an array like structure and therefore we are able to use forEach method
+
+document.querySelectorAll('.btn-show--modal').forEach((btn) => {
+  btn.addEventListener('click', openModal);
+});
+
+document.querySelectorAll('.btn-close--modal').forEach((btn) => {
+  btn.addEventListener('click', closeModal);
 });

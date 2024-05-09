@@ -52,7 +52,7 @@
       font-size: variables.$font-size-lg;
     }
 
-    @media (min-width: 78.125rem) {
+    @media (width >= 78.125rem) {
       padding: variables.$spacing-xl 13em;
     }
   }
