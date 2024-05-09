@@ -214,14 +214,14 @@ const closeModal = () => {
   overlay.classList.add('hidden');
 };
 
-// lets loop through all the buttons that have the className of btn-show--modal/btn-close-modal and attach the event listener to them
+// lets loop through all the buttons that have the className of btn-show-modal/btn-close-modal and attach the event listener to them
 
 // Note that querySelectorAll returns a nodeList, which is an array like structure and therefore we are able to use forEach method
 
-document.querySelectorAll('.btn-show--modal').forEach((btn) => {
+document.querySelectorAll('.btn-show-modal').forEach((btn) => {
   btn.addEventListener('click', openModal);
 });
 
-document.querySelectorAll('.btn-close--modal').forEach((btn) => {
+document.querySelectorAll('.btn-close-modal').forEach((btn) => {
   btn.addEventListener('click', closeModal);
 });
