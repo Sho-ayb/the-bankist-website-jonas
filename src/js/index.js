@@ -27,8 +27,8 @@ const sectionFeatures = document.getElementById('section-features');
 const headerNavMenuList = document.querySelector('.header-nav-menu-list');
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
-const btnOpenModal = document.querySelector('.btn--show-modal');
-const btnCloseModal = document.querySelector('.btn--close-modal');
+const btnOpenModal = document.querySelectorAll('.btn-show-modal');
+const btnCloseModal = document.querySelectorAll('.btn-close-modal');
 
 // Mobile menu when user clicks on button when the viewport is < 768px in width
 
@@ -179,22 +179,6 @@ We will be able to see the benefit of this in the following implementation to th
 
 */
 
-// Note here that we have attached an event listener to the parent element of all the anchor links
-
-headerNavMenuList.addEventListener('click', (e) => {
-  e.preventDefault();
-
-  // lets check if the links contain the className
-  if (e.target.classList.contains('header-nav-menu-links')) {
-    // if it does we can get the id from the href attribute
-    const id = e.target.getAttribute('href');
-
-    // and then we can use the id to select the correct section and attach the Element.scrollIntoView() method
-
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-  }
-});
-
 // Implementing an open modal function to open a modal when Open account buttons are clicked
 
 const openModal = (e) => {
@@ -214,14 +198,57 @@ const closeModal = () => {
   overlay.classList.add('hidden');
 };
 
+// Note here that we have attached an event listener to the parent element of all the anchor links
+
+headerNavMenuList.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  // lets check if the links contain the className
+  if (e.target.classList.contains('header-nav-menu-links')) {
+    // if it does we can get the id from the href attribute
+    // but we don't want to select the href of the button anchor link since this should open the modal instead
+    const id = e.target.getAttribute('href');
+
+    if (id && id !== '#') {
+      // and then we can use the id to select the correct section and attach the Element.scrollIntoView() method
+
+      document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    } else {
+      openModal(e);
+    }
+  }
+});
+
 // lets loop through all the buttons that have the className of btn-show-modal/btn-close-modal and attach the event listener to them
 
 // Note that querySelectorAll returns a nodeList, which is an array like structure and therefore we are able to use forEach method
 
-document.querySelectorAll('.btn-show-modal').forEach((btn) => {
+btnOpenModal.forEach((btn) => {
   btn.addEventListener('click', openModal);
 });
 
-document.querySelectorAll('.btn-close-modal').forEach((btn) => {
+btnCloseModal.forEach((btn) => {
   btn.addEventListener('click', closeModal);
 });
+
+// Implementing changing the opacity level when the nav links in the nav is hovered over
+
+// lets create a function to pass in the event and the opacity value
+
+const navStyle = (e, opacity) => {
+  // we should target only the anchor links that have a specific class
+
+  if (e.target.classList.contains('header-nav-menu-links')) {
+    // capture the target to a variable
+    const link = e.target;
+
+    // to get the specific effect we want, we need to target the siblings of target element by traversing up the dom tree
+    const siblings = e.target
+      .closest('header-nav-menu')
+      .querySelector('.header-nav-menu-links');
+
+    const logo = e.target.closest('header-nav').querySelector('.logo');
+  }
+};
+
+// Adding an event listener to the nav element
