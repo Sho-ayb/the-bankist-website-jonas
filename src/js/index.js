@@ -33,6 +33,7 @@ const headerNav = document.querySelector('.header-nav');
 const tabs = document.querySelectorAll('.operations-tab');
 const tabContainer = document.querySelector('.operations-tabs');
 const tabsContent = document.querySelectorAll('.operations-content');
+const header = document.querySelector('.header');
 
 // Mobile menu when user clicks on button when the viewport is < 768px in width
 
@@ -275,6 +276,45 @@ headerNav.addEventListener('mouseover', (e) => {
 headerNav.addEventListener('mouseout', (e) => {
   navStyle(e, 1);
 });
+
+// Making the header-nav sticky
+
+/*
+
+In this section, we will be implementing the navigation menu to be sticky when the header intersects with the header-nav element. To do this we are going to use the intersectionObserver API: https://www.w3.org/TR/intersection-observer/
+
+*/
+
+//  Lets create a function here that takes in an argument which is returned as an entry object as an array like object.
+
+const navStickyCb = (entries) => {
+  // destructure entry from entries array like object
+
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) {
+    headerNav.classList.add('sticky');
+  } else {
+    headerNav.classList.remove('sticky');
+  }
+};
+
+// Before creating the options object to pass in to intersection observer, we need to get the height of the header-nav element as the value for rootMargin so that the observer will know when the header-nav no longer intersects with the header element.
+
+const headerNavHeight = headerNav.getBoundingClientRect().height;
+
+// Note that the threshold prop is zero, this tells the observer that the threshold for making the header-nav sticky will be when it is no longer intersecting at all.
+
+const headerOptions = {
+  root: null,
+  rootMargin: `-${headerNavHeight}px`,
+  threshold: 0,
+};
+
+// lets create the new observer
+const headerObserver = new IntersectionObserver(navStickyCb, headerOptions);
+
+headerObserver.observe(header);
 
 // Building a tabbed component
 
