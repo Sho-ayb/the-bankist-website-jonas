@@ -11,8 +11,17 @@ body > main {
     }
   }
 
+  @media (min-width: 48rem) {
+    .section.section-hidden {
+      opacity: 0;
+      transform: translateY(8rem);
+    }
+  }
   .section {
     border-top: 1px solid variables.$color-border;
+    transition:
+      transform 0.2s,
+      opacity 1s;
 
     &-description {
       font-size: clamp(1.125rem, 2.5vw, 2rem);

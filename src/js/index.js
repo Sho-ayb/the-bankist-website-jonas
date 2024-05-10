@@ -34,6 +34,7 @@ const tabs = document.querySelectorAll('.operations-tab');
 const tabContainer = document.querySelector('.operations-tabs');
 const tabsContent = document.querySelectorAll('.operations-content');
 const header = document.querySelector('.header');
+const allSections = document.querySelectorAll('.section');
 
 // Mobile menu when user clicks on button when the viewport is < 768px in width
 
@@ -315,6 +316,34 @@ const headerOptions = {
 const headerObserver = new IntersectionObserver(navStickyCb, headerOptions);
 
 headerObserver.observe(header);
+
+// Hiding the sections until the users viewport reaches the section - to do this we will also be using intersection observer api
+
+const revealSection = (entries, observer) => {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  if (entry.isIntersecting) {
+    entry.target.classList.remove('section-hidden');
+
+    observer.unobserve(entry.target);
+  }
+};
+
+const sectionOptions = {
+  root: null,
+  threshold: 0.15,
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, sectionOptions);
+
+// we need to loop through all the section elements and apply the sectionObserver
+
+allSections.forEach((section) => {
+  sectionObserver.observe(section);
+  section.classList.add('section-hidden');
+});
 
 // Building a tabbed component
 
