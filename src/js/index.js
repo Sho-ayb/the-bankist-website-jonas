@@ -35,6 +35,7 @@ const tabContainer = document.querySelector('.operations-tabs');
 const tabsContent = document.querySelectorAll('.operations-content');
 const header = document.querySelector('.header');
 const allSections = document.querySelectorAll('.section');
+const allFeatureImages = document.querySelectorAll('.features-img');
 
 // Mobile menu when user clicks on button when the viewport is < 768px in width
 
@@ -317,7 +318,7 @@ const headerObserver = new IntersectionObserver(navStickyCb, headerOptions);
 
 headerObserver.observe(header);
 
-// Hiding the sections until the users viewport reaches the section - to do this we will also be using intersection observer api
+// Hiding the sections until the users viewport reaches the section - to do this we will also be using intersection observer api. Note that we use entry.target to target the actual element that meets the intersection threshold of 15%, this is so that the class section-hidden is not removed from all the sections at once but only the section the meets the intersection.
 
 const revealSection = (entries, observer) => {
   const [entry] = entries;
@@ -326,9 +327,8 @@ const revealSection = (entries, observer) => {
 
   if (entry.isIntersecting) {
     entry.target.classList.remove('section-hidden');
-
-    observer.unobserve(entry.target);
   }
+  observer.unobserve(entry.target);
 };
 
 const sectionOptions = {
@@ -343,6 +343,46 @@ const sectionObserver = new IntersectionObserver(revealSection, sectionOptions);
 allSections.forEach((section) => {
   sectionObserver.observe(section);
   section.classList.add('section-hidden');
+});
+
+// Implementing a lazy loading of images for the features section
+
+const loadLazyImages = (entries, observer) => {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  if (entry.isIntersecting) {
+    entry.target.src = entry.target.dataset.src;
+
+    // An event listener on the entry.target to watch for a load and remove the className lazy-img, which applies a filter of blur
+
+    entry.target.addEventListener('load', () => {
+      entry.target.classList.remove('lazy-img');
+    });
+  }
+
+  observer.unobserve(entry.target);
+};
+
+// Intersection options
+
+const imgOptions = {
+  root: null,
+  threshold: 0.5,
+  rootMargin: '200px',
+};
+
+const featureImageObserver = new IntersectionObserver(
+  loadLazyImages,
+  imgOptions
+);
+
+// Looping through all images and attaching the observer
+
+allFeatureImages.forEach((img) => {
+  featureImageObserver.observe(img);
+  img.classList.add('lazy-img');
 });
 
 // Building a tabbed component

@@ -57,6 +57,12 @@ body > main {
   .features {
     grid-row: 2;
 
+    .lazy {
+      &-img {
+        filter: blur(20px);
+      }
+    }
+
     &-card {
       width: 100%;
 
