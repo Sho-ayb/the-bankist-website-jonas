@@ -8,10 +8,11 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
+  devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
-    assetModuleFilename: './src/assets/img/[name][ext]',
+    filename: 'bundle.[contenthash].js',
+    assetModuleFilename: 'assets/img/[name][ext]',
   },
   plugins: [
     new HtmlWebpackPlugin({

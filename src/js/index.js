@@ -3,8 +3,11 @@ import '../scss/style.scss';
 // Images
 import logoImg from '../assets/img/logo.png';
 import heroImg from '../assets/img/hero.png';
+import featuresDigitalLazyImg from '../assets/img/digital-lazy.jpg';
+import featuresPlantLazyImg from '../assets/img/grow-lazy.jpg';
+import featuresCreditLazyImg from '../assets/img/card-lazy.jpg';
 import featuresDigitalImg from '../assets/img/digital.jpg';
-import featuresPlantImg from '../assets/img/grow-lazy.jpg';
+import featuresPlantImg from '../assets/img/grow.jpg';
 import featuresCreditImg from '../assets/img/card.jpg';
 import testimonialPic1 from '../assets/img/user-1.jpg';
 import testimonialPic2 from '../assets/img/user-2.jpg';

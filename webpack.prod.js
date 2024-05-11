@@ -6,17 +6,29 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
+  devtool: 'nosources-source-map',
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/build/',
     filename: 'bundle.[contenthash].js',
-    assetModuleFilename: './src/assets/img/[name].[hash].[ext]',
+    assetModuleFilename: 'assets/img/[name].[hash].[ext]',
   },
   optimization: {
-    minimizer: [new CSSMinimizerPlugin()],
+    minimizer: [
+      new CSSMinimizerPlugin(),
+      new TerserPlugin({
+        extractComments: true,
+        terserOptions: {
+          output: {
+            comments: 'all',
+          },
+        },
+      }),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -36,7 +48,6 @@ module.exports = merge(common, {
             presets: ['@babel/preset-env'],
           },
         },
-        use: ['source-map-loader'],
       },
       {
         test: /\.scss$/,
