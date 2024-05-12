@@ -15,7 +15,7 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/build/',
     filename: 'bundle.[contenthash].js',
-    assetModuleFilename: 'assets/img/[name].[hash].[ext]',
+    assetModuleFilename: './src/assets/img/[name].[hash][ext]',
   },
   optimization: {
     minimizer: [
