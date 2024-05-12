@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const GoogleFontsPlugin = require('@beyonk/google-fonts-webpack-plugin');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const ImageWebpackLoader = require('image-webpack-loader');
 
 module.exports = {
   entry: './src/js/index.js',
@@ -28,41 +26,12 @@ module.exports = {
       // Add more fonts if needed
       local: false, // Use Google fonts CDN instead of downloading
     }),
-    new ImageMinimizerPlugin({
-      minimizerOptions: {
-        plugins: [
-          ['jpegtran', { progressive: true }],
-          ['optipng', { optimizationLevel: 5 }],
-        ],
-      },
-    }),
   ],
   module: {
     rules: [
       {
-        test: /\.(svg|jpe?g|png|gif)$/i,
+        test: /\.(svg|jpg|png)$/,
         type: 'asset/resource',
-        use: [
-          {
-            loader: ImageWebpackLoader.loader,
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65,
-              },
-              optipng: {
-                enabled: true,
-              },
-              pngquant: {
-                quality: [0.65, 0.9],
-                speed: 4,
-              },
-              generator: {
-                filename: 'assets/img/[name][ext]',
-              },
-            },
-          },
-        ],
       },
     ],
   },
