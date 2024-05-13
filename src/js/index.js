@@ -39,6 +39,12 @@ const tabsContent = document.querySelectorAll('.operations-content');
 const header = document.querySelector('.header');
 const allSections = document.querySelectorAll('.section');
 const allFeatureImages = document.querySelectorAll('.features-img');
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const slideBtnRight = document.querySelector('.slider-btn--right');
+const slideBtnLeft = document.querySelector('.slider-btn--left');
+
+console.log(slideBtnRight);
 
 // Mobile menu when user clicks on button when the viewport is < 768px in width
 
@@ -419,3 +425,113 @@ tabContainer.addEventListener('click', (e) => {
     .querySelector(`.operations-content--${clicked.dataset.tab}`)
     .classList.add('operations-content--active');
 });
+
+// Building the slider component
+
+// just so we can see the entire slider
+
+// slider.style.transform = 'scale(0.5)';
+// slider.style.overflow = 'hidden';
+
+// we need to set the initial current slide to zero
+let curSlide = 0;
+
+// we need to minus by 1 because slides index is zero based 0,1,2
+const maxSlide = slides.length - 1;
+
+/*
+
+-- The code below is working, so let refactor it to helper functions below:
+
+slides.forEach((slide, i) => {
+  const tempPara = slide;
+
+  tempPara.style.transform = `translateX(${100 * i}%)`;
+});
+
+slideBtnRight.addEventListener('click', () => {
+  // check to see if we have reached the max slide
+
+  console.log('current slide: ', curSlide);
+  console.log('max slide:', maxSlide);
+
+  if (curSlide === maxSlide) {
+    // reset current slide
+    curSlide = 0;
+  } else {
+    // incrementing the current slide index
+    curSlide += 1;
+  }
+  // moves slide to the right
+
+  slides.forEach((slide, i) => {
+    console.log('slide index:', i);
+    const tempPara = slide;
+    tempPara.style.transform = `translateX(${100 * (i - curSlide)}%)`;
+  });
+});
+
+
+*/
+
+// if curSlide = 1; then the order is: -100%, 0%, 100%, 200%,
+
+// curSlide = 1; slide index = 0; 100 * (0 - 1 = -1) = -100%
+// curSlide = 1; slide index = 1; 100 * (1 - 1 = 0) = 0%
+// curSlide = 1; slide index = 2; 100 * (2 - 1 = 1) = 100%
+// curSlide = 1; slide index = 3; 100 * (3 - 1 = 2) = 200%
+
+/*
+
+How the above works: each time the button is fired, curSlide is incremented by 1, the iteration takes place on ALL of the slides in the nodeList - which is array like - the expression (i - curSlide) takes precedence and is calcuted, its result is multiplied by 100%. 
+
+Thus; for the first slide in the index, when the button is clicked its translateX value is now -100%, which places the slide element left of the current slide and the current slide is at 0%,  the next slide is at 100%, which places to the right of the current slide and so forth. 
+
+
+*/
+
+// Refactoring above code in to separate functions
+
+// lets refactor translating the slide in to its own function
+
+const gotToSlide = (slide) => {
+  slides.forEach((s, i) => {
+    console.log('slide index:', i);
+    const tempPara = s;
+    tempPara.style.transform = `translateX(${100 * (i - slide)}%)`;
+  });
+};
+
+// lets create a function(s) to change the slide
+
+const nextSlide = () => {
+  // moves slide to the right
+
+  if (curSlide === maxSlide) {
+    curSlide = 0;
+  } else {
+    curSlide += 1;
+  }
+  gotToSlide(curSlide);
+};
+
+const prevSlide = () => {
+  // moves slide to the left
+
+  if (curSlide === 0) {
+    curSlide = maxSlide;
+  } else {
+    curSlide -= 1;
+  }
+  gotToSlide(curSlide);
+};
+
+// Invoke the function and pass in current slide - this initiates the current slide to zero when the application first runs
+
+gotToSlide(curSlide);
+
+// the event listeners on the left and right buttons
+
+slideBtnLeft.addEventListener('click', prevSlide);
+
+slideBtnRight.addEventListener('click', nextSlide);
