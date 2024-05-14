@@ -39,12 +39,10 @@ const tabsContent = document.querySelectorAll('.operations-content');
 const header = document.querySelector('.header');
 const allSections = document.querySelectorAll('.section');
 const allFeatureImages = document.querySelectorAll('.features-img');
-const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
 const slideBtnRight = document.querySelector('.slider-btn--right');
 const slideBtnLeft = document.querySelector('.slider-btn--left');
-
-console.log(slideBtnRight);
+const indicators = document.querySelector('.indicators');
 
 // Mobile menu when user clicks on button when the viewport is < 768px in width
 
@@ -433,11 +431,11 @@ tabContainer.addEventListener('click', (e) => {
 // slider.style.transform = 'scale(0.5)';
 // slider.style.overflow = 'hidden';
 
-// we need to set the initial current slide to zero
-let curSlide = 0;
+// // we need to set the initial current slide to zero
+// let curSlide = 0;
 
-// we need to minus by 1 because slides index is zero based 0,1,2
-const maxSlide = slides.length - 1;
+// // we need to minus by 1 because slides index is zero based 0,1,2
+// const maxSlide = slides.length - 1;
 
 /*
 
@@ -490,48 +488,131 @@ Thus; for the first slide in the index, when the button is clicked its translate
 
 */
 
-// Refactoring above code in to separate functions
+// Refactoring above code in to separate functions and wrapping in to its own function so that we do not polute the global namespace
 
-// lets refactor translating the slide in to its own function
+const slider = () => {
+  // we need to set the initial current slide to zero
+  let curSlide = 0;
 
-const gotToSlide = (slide) => {
-  slides.forEach((s, i) => {
-    console.log('slide index:', i);
-    const tempPara = s;
-    tempPara.style.transform = `translateX(${100 * (i - slide)}%)`;
+  // we need to minus by 1 because slides index is zero based 0,1,2
+  const maxSlide = slides.length - 1;
+
+  // Creating slider indicator dots
+
+  const createDots = () => {
+    slides.forEach((_, i) => {
+      indicators.insertAdjacentHTML(
+        'beforeend',
+        `<button class="indicators-dot" data-slide=${i}>`
+      );
+    });
+  };
+
+  /*
+
+  Instead of using Element.insertAdjacentHTML() method we can use document.createElement too. 
+
+  const createDots = () => {
+
+    slides.forEach((_, i) => {
+
+      const indicator = document.createElement('button');
+      indicator.classList.add('indicator-dot');
+      indicator.dataset.slide = i; 
+      indicators.appendChild(indicator);
+
+    });
+
+  }
+
+  The above is more performative and can mitigate against cross site scripting attacks but insertAdjacentHTML is useful when you markup that has dynamic generated content.
+
+*/
+
+  // Activate active dots function
+
+  const activateDot = (slide) => {
+    // removing the active class on all the indicators first
+    document.querySelectorAll('.indicators-dot').forEach((dot) => {
+      dot.classList.remove('indicators-dot--active');
+    });
+
+    // adding the active class to the active dot - using optional chaining ?. to check if element is null before adding the class
+
+    document
+      .querySelector(`.indicators-dot[data-slide="${slide}"]`)
+      ?.classList.add('indicators-dot--active');
+  };
+
+  // lets refactor translating the slide in to its own function
+
+  const gotToSlide = (slide) => {
+    slides.forEach((s, i) => {
+      const tempPara = s;
+      tempPara.style.transform = `translateX(${100 * (i - slide)}%)`;
+    });
+  };
+
+  // lets create a function(s) to change the slide
+
+  const nextSlide = () => {
+    // moves slide to the right
+
+    if (curSlide === maxSlide) {
+      curSlide = 0;
+    } else {
+      curSlide += 1;
+    }
+    gotToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const prevSlide = () => {
+    // moves slide to the left
+
+    if (curSlide === 0) {
+      curSlide = maxSlide;
+    } else {
+      curSlide -= 1;
+    }
+    gotToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  // Creating an init function here to initialise
+
+  const init = () => {
+    gotToSlide(0);
+    createDots();
+    activateDot(0);
+  };
+
+  init();
+
+  // the event listeners on the left and right buttons
+
+  slideBtnLeft.addEventListener('click', prevSlide);
+
+  slideBtnRight.addEventListener('click', nextSlide);
+
+  // Adding event listener to keydown
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+
+  // Adding event listener to indicators
+
+  indicators.addEventListener('click', (e) => {
+    if (e.target.classList.contains('indicators-dot')) {
+      const { slide } = e.target.dataset;
+      gotToSlide(slide);
+      activateDot(slide);
+    }
   });
 };
 
-// lets create a function(s) to change the slide
+// invoking the above function
 
-const nextSlide = () => {
-  // moves slide to the right
-
-  if (curSlide === maxSlide) {
-    curSlide = 0;
-  } else {
-    curSlide += 1;
-  }
-  gotToSlide(curSlide);
-};
-
-const prevSlide = () => {
-  // moves slide to the left
-
-  if (curSlide === 0) {
-    curSlide = maxSlide;
-  } else {
-    curSlide -= 1;
-  }
-  gotToSlide(curSlide);
-};
-
-// Invoke the function and pass in current slide - this initiates the current slide to zero when the application first runs
-
-gotToSlide(curSlide);
-
-// the event listeners on the left and right buttons
-
-slideBtnLeft.addEventListener('click', prevSlide);
-
-slideBtnRight.addEventListener('click', nextSlide);
+slider();
