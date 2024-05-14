@@ -2,7 +2,7 @@
 /******/"use strict";
 /******/ // The require scope
 /******/var e={
-/******/p:"/"};
+/******/p:"./"};
 /******/
 /************************************************************************/
 /******/ /* webpack/runtime/publicPath */
@@ -215,4 +215,4 @@ document.addEventListener("keydown",(function(e){"ArrowLeft"===e.key&&D(),"Arrow
 // Adding event listener to indicators
 w.addEventListener("click",(function(e){if(e.target.classList.contains("indicators-dot")){var t=e.target.dataset.slide;X(t),M(t)}}))})
 /******/();
-//# sourceMappingURL=bundle.bdcfef057d4c18a0ab5e.js.map
+//# sourceMappingURL=bundle.d64809c1358aa3223f65.js.map
