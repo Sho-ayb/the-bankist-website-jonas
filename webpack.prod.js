@@ -13,7 +13,7 @@ module.exports = merge(common, {
   devtool: 'nosources-source-map',
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/build/',
+    publicPath: '/',
     filename: 'bundle.[contenthash].js',
     assetModuleFilename: './src/assets/img/[name].[hash][ext]',
   },
