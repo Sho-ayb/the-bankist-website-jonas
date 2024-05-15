@@ -354,13 +354,27 @@ allSections.forEach((section) => {
 
 // Implementing a lazy loading of images for the features section
 
+// We have multiple images in the features section that are loaded when the element is intersecting with the viewport. We will use Intersection Observer API to load these images. However for image caching to work with hash value in the url, we added a data-src attribute to the image element but we need to create an object to pass as the img.src value, that matches entry.target.dataset.src value.
+
+// The values are variables that hold the image path and will include a hash value for caching purposes when the app is built in webpack production mode.
+
+const imageSources = {
+  'assets/img/digital.jpg': featuresDigitalImg,
+  'assets/img/grow.jpg': featuresPlantImg,
+  'assets/img/card.jpg': featuresCreditImg,
+};
+
 const loadLazyImages = (entries, observer) => {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
 
+  // we can use bracket notation to get the value of the imageSources object using the entry.target.dataset.src value as the key
+  const imageSrc = imageSources[entry.target.dataset.src];
+
   if (entry.isIntersecting) {
-    entry.target.src = entry.target.dataset.src;
+    // assign the value of the imageSources object to the entry.target.src
+    entry.target.src = imageSrc;
 
     // An event listener on the entry.target to watch for a load and remove the className lazy-img, which applies a filter of blur
 
