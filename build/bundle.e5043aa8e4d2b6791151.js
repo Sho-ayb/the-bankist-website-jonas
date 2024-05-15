@@ -7,19 +7,19 @@
 /************************************************************************/
 /******/ /* webpack/runtime/publicPath */
 /******/ // CONCATENATED MODULE: ./src/assets/img/logo.png
-e.p,e.p,e.p,e.p,e.p,e.p,e.p,e.p,e.p,e.p,e.p,e.p,e.p;// CONCATENATED MODULE: ./src/js/index.js
-function t(e,t){return function(e){if(Array.isArray(e))return e}
+e.p,e.p,e.p,e.p,e.p;const t=e.p+"assets/img/digital.4aa19c45525ca0ffe32a.jpg",n=e.p+"assets/img/grow.1dbce71c2269c506218a.jpg",r=e.p+"assets/img/card.b2032a20fc1ab216f19b.jpg";e.p,e.p,e.p,e.p,e.p;// CONCATENATED MODULE: ./src/js/index.js
+function o(e,t){return function(e){if(Array.isArray(e))return e}
 // Images
 // Icons
-(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=n){var r,o,a,i,c=[],s=!0,l=!1;try{if(a=(n=n.call(e)).next,0===t){if(Object(n)!==n)return;s=!1}else for(;!(s=(r=a.call(n)).done)&&(c.push(r.value),c.length!==t);s=!0);}catch(e){l=!0,o=e}finally{try{if(!s&&null!=n.return&&(i=n.return(),Object(i)!==i))return}finally{if(l)throw o}}return c}}(e,t)||function(e,t){if(!e)return;if("string"==typeof e)return n(e,t);var r=Object.prototype.toString.call(e).slice(8,-1);"Object"===r&&e.constructor&&(r=e.constructor.name);if("Map"===r||"Set"===r)return Array.from(e);if("Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r))return n(e,t)}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function n(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n<t;n++)r[n]=e[n];return r}console.log("Webpack is serving!");
+(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=n){var r,o,a,i,c=[],s=!0,l=!1;try{if(a=(n=n.call(e)).next,0===t){if(Object(n)!==n)return;s=!1}else for(;!(s=(r=a.call(n)).done)&&(c.push(r.value),c.length!==t);s=!0);}catch(e){l=!0,o=e}finally{try{if(!s&&null!=n.return&&(i=n.return(),Object(i)!==i))return}finally{if(l)throw o}}return c}}(e,t)||function(e,t){if(!e)return;if("string"==typeof e)return a(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);"Object"===n&&e.constructor&&(n=e.constructor.name);if("Map"===n||"Set"===n)return Array.from(e);if("Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return a(e,t)}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function a(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n<t;n++)r[n]=e[n];return r}console.log("Webpack is serving!");
 // Selecting elements on page
-var r=document.getElementById("btnOpen"),o=document.getElementById("btnClose"),a=document.querySelector(".nav-wrapper"),i=document.querySelector(".header-cta-learnmore"),c=document.getElementById("section-features"),s=document.querySelector(".header-nav-menu-list"),l=document.querySelector(".modal"),d=document.querySelector(".overlay"),u=document.querySelectorAll(".btn-show-modal"),f=document.querySelectorAll(".btn-close-modal"),v=document.querySelector(".header-nav"),m=document.querySelectorAll(".operations-tab"),y=document.querySelector(".operations-tabs"),g=document.querySelectorAll(".operations-content"),p=document.querySelector(".header"),h=document.querySelectorAll(".section"),b=document.querySelectorAll(".features-img"),L=document.querySelectorAll(".slide"),S=document.querySelector(".slider-btn--right"),E=document.querySelector(".slider-btn--left"),w=document.querySelector(".indicators");r.addEventListener("click",(function(){"false"===r.getAttribute("aria-expanded")&&window.getComputedStyle(a).getPropertyValue("transform").includes("matrix(1, 0, 0, 1, -")&&(a.style.transform="translateX(0%)",r.setAttribute("aria-expanded","true"),o.setAttribute("aria-expanded","true"))})),o.addEventListener("click",(function(){"true"===o.getAttribute("aria-expanded")&&window.getComputedStyle(a).getPropertyValue("transform").includes("matrix(1, 0, 0, 1, 0")&&(a.style.transform="translateX(-100%)",r.setAttribute("aria-expanded","false"),o.setAttribute("aria-expanded","false"))}));
+var i=document.getElementById("btnOpen"),c=document.getElementById("btnClose"),s=document.querySelector(".nav-wrapper"),l=document.querySelector(".header-cta-learnmore"),d=document.getElementById("section-features"),u=document.querySelector(".header-nav-menu-list"),f=document.querySelector(".modal"),v=document.querySelector(".overlay"),m=document.querySelectorAll(".btn-show-modal"),g=document.querySelectorAll(".btn-close-modal"),y=document.querySelector(".header-nav"),p=document.querySelectorAll(".operations-tab"),h=document.querySelector(".operations-tabs"),b=document.querySelectorAll(".operations-content"),L=document.querySelector(".header"),S=document.querySelectorAll(".section"),w=document.querySelectorAll(".features-img"),E=document.querySelectorAll(".slide"),A=document.querySelector(".slider-btn--right"),q=document.querySelector(".slider-btn--left"),k=document.querySelector(".indicators");i.addEventListener("click",(function(){"false"===i.getAttribute("aria-expanded")&&window.getComputedStyle(s).getPropertyValue("transform").includes("matrix(1, 0, 0, 1, -")&&(s.style.transform="translateX(0%)",i.setAttribute("aria-expanded","true"),c.setAttribute("aria-expanded","true"))})),c.addEventListener("click",(function(){"true"===c.getAttribute("aria-expanded")&&window.getComputedStyle(s).getPropertyValue("transform").includes("matrix(1, 0, 0, 1, 0")&&(s.style.transform="translateX(-100%)",i.setAttribute("aria-expanded","false"),c.setAttribute("aria-expanded","false"))}));
 // Learn more anchor link should appear when the viewport is >= 768px width
-var A=function(){window.visualViewport.width>=768?i.classList.remove("hidden"):i.classList.add("hidden")};
+var I=function(){window.visualViewport.width>=768?l.classList.remove("hidden"):l.classList.add("hidden")};
 // Invoking the function here so that the anchor link will appear if the viewport width is >= 768px in the first instance.
-A(),
+I(),
 // Attaching an event listener so that the anchor link can be hidden when the viewport width is < 768px.
-window.addEventListener("resize",A),
+window.addEventListener("resize",I),
 // Implementing smooth scrolling to section-features
 /*
 
@@ -32,7 +32,7 @@ We will also a latest and better implementation using Element.scrollIntoView() m
 
 
 */
-i.addEventListener("click",(function(e){e.preventDefault();var t=c.getBoundingClientRect();
+l.addEventListener("click",(function(e){e.preventDefault();var t=d.getBoundingClientRect();
 // lets log the coords to the console: we get a DOMRect object
 console.log(t),
 //  lets log the scroll coords also to the console: this is logged by the global window object as pageXOffset and pageYOffset
@@ -54,7 +54,7 @@ console.log("Scroll co-ordinates for (x and y): ",window.pageXOffset,window.page
 // };
 // window.scrollTo(options);
 // However the above pageOffsets are now deprecated and so there is a more modern and better way of scrolling to a section that we can utilise.
-c.scrollIntoView({behavior:"smooth"})}));
+d.scrollIntoView({behavior:"smooth"})}));
 // Page Navigation
 /*
 
@@ -79,25 +79,25 @@ We will be able to see the benefit of this in the following implementation to th
 
 */
 // Implementing an open modal function to open a modal when Open account buttons are clicked
-var q=function(e){e.preventDefault(),
+var j=function(e){e.preventDefault(),
 // we need to remove hidden className from the modal & overlay elements
-l.classList.remove("hidden"),d.classList.remove("hidden")},k=function(){l.classList.add("hidden"),d.classList.add("hidden")};
+f.classList.remove("hidden"),v.classList.remove("hidden")},x=function(){f.classList.add("hidden"),v.classList.add("hidden")};
 // We need to close the modal and overlay too
 // Note here that we have attached an event listener to the parent element of all the anchor links
-s.addEventListener("click",(function(e){
+u.addEventListener("click",(function(e){
 // lets check if the links contain the className
 if(e.preventDefault(),e.target.classList.contains("header-nav-menu-links")){
 // if it does we can get the id from the href attribute
 // but we don't want to select the href of the button anchor link since this should open the modal instead
 var t=e.target.getAttribute("href");t&&"#"!==t?
 // and then we can use the id to select the correct section and attach the Element.scrollIntoView() method
-document.querySelector(t).scrollIntoView({behavior:"smooth"}):q(e)}})),
+document.querySelector(t).scrollIntoView({behavior:"smooth"}):j(e)}})),
 // lets loop through all the buttons that have the className of btn-show-modal/btn-close-modal and attach the event listener to them
 // Note that querySelectorAll returns a nodeList, which is an array like structure and therefore we are able to use forEach method
-u.forEach((function(e){e.addEventListener("click",q)})),f.forEach((function(e){e.addEventListener("click",k)}));
+m.forEach((function(e){e.addEventListener("click",j)})),g.forEach((function(e){e.addEventListener("click",x)}));
 // Implementing changing the opacity level when the nav links in the nav is hovered over
 // lets create a function to pass in the event and the opacity value
-var I=function(e,t){
+var O=function(e,t){
 // we should target only the anchor links that have a specific class
 if(e.target.classList.contains("header-nav-menu-links")){
 // capture the target to a variable
@@ -106,7 +106,7 @@ var n=e.target,r=e.target.closest(".header-nav-menu-list").querySelectorAll(".he
 // loop through the siblings and change the opacity
 r.forEach((function(e){e!==n&&(e.style.opacity=t)})),o.style.opacity=t}};
 // Adding an event listener to the nav element
-v.addEventListener("mouseover",(function(e){I(e,.5)})),v.addEventListener("mouseout",(function(e){I(e,1)}));
+y.addEventListener("mouseover",(function(e){O(e,.5)})),y.addEventListener("mouseout",(function(e){O(e,1)}));
 // Making the header-nav sticky
 /*
 
@@ -114,31 +114,36 @@ In this section, we will be implementing the navigation menu to be sticky when t
 
 */
 //  Lets create a function here that takes in an argument which is returned as an entry object as an array like object.
-var x=v.getBoundingClientRect().height,O={root:null,rootMargin:"-".concat(x,"px"),threshold:0};
+var C=y.getBoundingClientRect().height,B={root:null,rootMargin:"-".concat(C,"px"),threshold:0};
 // Before creating the options object to pass in to intersection observer, we need to get the height of the header-nav element as the value for rootMargin so that the observer will know when the header-nav no longer intersects with the header element.
-new IntersectionObserver((function(e){t(e,1)[0].isIntersecting?v.classList.remove("sticky"):v.classList.add("sticky")}),O).observe(p);
+new IntersectionObserver((function(e){o(e,1)[0].isIntersecting?y.classList.remove("sticky"):y.classList.add("sticky")}),B).observe(L);
 // Hiding the sections until the users viewport reaches the section - to do this we will also be using intersection observer api. Note that we use entry.target to target the actual element that meets the intersection threshold of 15%, this is so that the class section-hidden is not removed from all the sections at once but only the section the meets the intersection.
-var j=new IntersectionObserver((function(e,n){var r=t(e,1)[0];r.isIntersecting&&(r.isIntersecting&&r.target.classList.remove("section-hidden"),n.unobserve(r.target))}),{root:null,threshold:.15});
+var V=new IntersectionObserver((function(e,t){var n=o(e,1)[0];n.isIntersecting&&(n.isIntersecting&&n.target.classList.remove("section-hidden"),t.unobserve(n.target))}),{root:null,threshold:.15});
 // we need to loop through all the section elements and apply the sectionObserver
-h.forEach((function(e){j.observe(e),e.classList.add("section-hidden")}));
+S.forEach((function(e){V.observe(e),e.classList.add("section-hidden")}));
 // Implementing a lazy loading of images for the features section
-var C=new IntersectionObserver((function(e,n){var r=t(e,1)[0];r.isIntersecting&&(r.isIntersecting&&(r.target.src=r.target.dataset.src,
+// We have multiple images in the features section that are loaded when the element is intersecting with the viewport. We will use Intersection Observer API to load these images. However for image caching to work with hash value in the url, we added a data-src attribute to the image element but we need to create an object to pass as the img.src value, that matches entry.target.dataset.src value.
+// The values are variables that hold the image path and will include a hash value for caching purposes when the app is built in webpack production mode.
+var M={"assets/img/digital.jpg":t,"assets/img/grow.jpg":n,"assets/img/card.jpg":r},X=new IntersectionObserver((function(e,t){var n=o(e,1)[0];if(n.isIntersecting){
+// we can use bracket notation to get the value of the imageSources object using the entry.target.dataset.src value as the key
+var r=M[n.target.dataset.src];n.isIntersecting&&(
+// assign the value of the imageSources object to the entry.target.src
+n.target.src=r,
 // An event listener on the entry.target to watch for a load and remove the className lazy-img, which applies a filter of blur
-r.target.addEventListener("load",(function(){r.target.classList.remove("lazy-img")}))),n.unobserve(r.target))}),{root:null,threshold:.5,rootMargin:"200px"});
-// Intersection options
+n.target.addEventListener("load",(function(){n.target.classList.remove("lazy-img")}))),t.unobserve(n.target)}}),{root:null,threshold:.5,rootMargin:"200px"});
 // Looping through all images and attaching the observer
-b.forEach((function(e){C.observe(e),e.classList.add("lazy-img")})),
+w.forEach((function(e){X.observe(e),e.classList.add("lazy-img")})),
 // Building a tabbed component
 // Using Event delegation we can target element clicked on and add the active class to it whilst also removing it from the current active tab
-y.addEventListener("click",(function(e){var t=e.target.closest(".operations-tab");
+h.addEventListener("click",(function(e){var t=e.target.closest(".operations-tab");
 // a guard clause here to avoid recieving a null when the user clicks anywhere other than the tab
 t&&(
 // remove active class
-m.forEach((function(e){return e.classList.remove("operations-tab--active")})),
+p.forEach((function(e){return e.classList.remove("operations-tab--active")})),
 // add active class to clicked tab
 t.classList.add("operations-tab--active"),
 // remove active class from content
-g.forEach((function(e){return e.classList.remove("operations-content--active")})),
+b.forEach((function(e){return e.classList.remove("operations-content--active")})),
 // activate content area - using dataset
 document.querySelector(".operations-content--".concat(t.dataset.tab)).classList.add("operations-content--active"))}));
 // Building the slider component
@@ -197,22 +202,22 @@ Thus; for the first slide in the index, when the button is clicked its translate
 
 */
 // Refactoring above code in to separate functions and wrapping in to its own function so that we do not polute the global namespace
-var B,V,M,X,z,D;
+var z,D,R,P,T,H;
 // invoking the above function
-B=0,V=L.length-1,M=function(e){var t;
+z=0,D=E.length-1,R=function(e){var t;
 // removing the active class on all the indicators first
 document.querySelectorAll(".indicators-dot").forEach((function(e){e.classList.remove("indicators-dot--active")})),
 // adding the active class to the active dot - using optional chaining ?. to check if element is null before adding the class
-null===(t=document.querySelector('.indicators-dot[data-slide="'.concat(e,'"]')))||void 0===t||t.classList.add("indicators-dot--active")},z=function(){
+null===(t=document.querySelector('.indicators-dot[data-slide="'.concat(e,'"]')))||void 0===t||t.classList.add("indicators-dot--active")},T=function(){
 // moves slide to the right
-B===V?B=0:B+=1,X(B),M(B)},D=function(){
+z===D?z=0:z+=1,P(z),R(z)},H=function(){
 // moves slide to the left
-0===B?B=V:B-=1,X(B),M(B)},(X=function(e){L.forEach((function(t,n){t.style.transform="translateX(".concat(100*(n-e),"%)")}))})(0),L.forEach((function(e,t){w.insertAdjacentHTML("beforeend",'<button class="indicators-dot" data-slide='.concat(t,">"))})),M(0),
+0===z?z=D:z-=1,P(z),R(z)},(P=function(e){E.forEach((function(t,n){t.style.transform="translateX(".concat(100*(n-e),"%)")}))})(0),E.forEach((function(e,t){k.insertAdjacentHTML("beforeend",'<button class="indicators-dot" data-slide='.concat(t,">"))})),R(0),
 // the event listeners on the left and right buttons
-E.addEventListener("click",D),S.addEventListener("click",z),
+q.addEventListener("click",H),A.addEventListener("click",T),
 // Adding event listener to keydown
-document.addEventListener("keydown",(function(e){"ArrowLeft"===e.key&&D(),"ArrowRight"===e.key&&z()})),
+document.addEventListener("keydown",(function(e){"ArrowLeft"===e.key&&H(),"ArrowRight"===e.key&&T()})),
 // Adding event listener to indicators
-w.addEventListener("click",(function(e){if(e.target.classList.contains("indicators-dot")){var t=e.target.dataset.slide;X(t),M(t)}}))})
+k.addEventListener("click",(function(e){if(e.target.classList.contains("indicators-dot")){var t=e.target.dataset.slide;P(t),R(t)}}))})
 /******/();
-//# sourceMappingURL=bundle.d64809c1358aa3223f65.js.map
+//# sourceMappingURL=bundle.e5043aa8e4d2b6791151.js.map
