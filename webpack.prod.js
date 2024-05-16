@@ -13,9 +13,9 @@ module.exports = merge(common, {
   devtool: 'nosources-source-map',
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/build/',
+    publicPath: './',
     filename: 'bundle.[contenthash].js',
-    assetModuleFilename: 'assets/img/[name].[hash].[ext]',
+    assetModuleFilename: 'assets/img/[name].[hash][ext]',
   },
   optimization: {
     minimizer: [
@@ -52,6 +52,10 @@ module.exports = merge(common, {
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
       },
     ],
   },

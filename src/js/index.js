@@ -39,6 +39,10 @@ const tabsContent = document.querySelectorAll('.operations-content');
 const header = document.querySelector('.header');
 const allSections = document.querySelectorAll('.section');
 const allFeatureImages = document.querySelectorAll('.features-img');
+const slides = document.querySelectorAll('.slide');
+const slideBtnRight = document.querySelector('.slider-btn--right');
+const slideBtnLeft = document.querySelector('.slider-btn--left');
+const indicators = document.querySelector('.indicators');
 
 // Mobile menu when user clicks on button when the viewport is < 768px in width
 
@@ -350,13 +354,27 @@ allSections.forEach((section) => {
 
 // Implementing a lazy loading of images for the features section
 
+// We have multiple images in the features section that are loaded when the element is intersecting with the viewport. We will use Intersection Observer API to load these images. However for image caching to work with hash value in the url, we added a data-src attribute to the image element but we need to create an object to pass as the img.src value, that matches entry.target.dataset.src value.
+
+// The values are variables that hold the image path and will include a hash value for caching purposes when the app is built in webpack production mode.
+
+const imageSources = {
+  'assets/img/digital.jpg': featuresDigitalImg,
+  'assets/img/grow.jpg': featuresPlantImg,
+  'assets/img/card.jpg': featuresCreditImg,
+};
+
 const loadLazyImages = (entries, observer) => {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
 
+  // we can use bracket notation to get the value of the imageSources object using the entry.target.dataset.src value as the key
+  const imageSrc = imageSources[entry.target.dataset.src];
+
   if (entry.isIntersecting) {
-    entry.target.src = entry.target.dataset.src;
+    // assign the value of the imageSources object to the entry.target.src
+    entry.target.src = imageSrc;
 
     // An event listener on the entry.target to watch for a load and remove the className lazy-img, which applies a filter of blur
 
@@ -419,3 +437,196 @@ tabContainer.addEventListener('click', (e) => {
     .querySelector(`.operations-content--${clicked.dataset.tab}`)
     .classList.add('operations-content--active');
 });
+
+// Building the slider component
+
+// just so we can see the entire slider
+
+// slider.style.transform = 'scale(0.5)';
+// slider.style.overflow = 'hidden';
+
+// // we need to set the initial current slide to zero
+// let curSlide = 0;
+
+// // we need to minus by 1 because slides index is zero based 0,1,2
+// const maxSlide = slides.length - 1;
+
+/*
+
+-- The code below is working, so let refactor it to helper functions below:
+
+slides.forEach((slide, i) => {
+  const tempPara = slide;
+
+  tempPara.style.transform = `translateX(${100 * i}%)`;
+});
+
+slideBtnRight.addEventListener('click', () => {
+  // check to see if we have reached the max slide
+
+  console.log('current slide: ', curSlide);
+  console.log('max slide:', maxSlide);
+
+  if (curSlide === maxSlide) {
+    // reset current slide
+    curSlide = 0;
+  } else {
+    // incrementing the current slide index
+    curSlide += 1;
+  }
+  // moves slide to the right
+
+  slides.forEach((slide, i) => {
+    console.log('slide index:', i);
+    const tempPara = slide;
+    tempPara.style.transform = `translateX(${100 * (i - curSlide)}%)`;
+  });
+});
+
+
+*/
+
+// if curSlide = 1; then the order is: -100%, 0%, 100%, 200%,
+
+// curSlide = 1; slide index = 0; 100 * (0 - 1 = -1) = -100%
+// curSlide = 1; slide index = 1; 100 * (1 - 1 = 0) = 0%
+// curSlide = 1; slide index = 2; 100 * (2 - 1 = 1) = 100%
+// curSlide = 1; slide index = 3; 100 * (3 - 1 = 2) = 200%
+
+/*
+
+How the above works: each time the button is fired, curSlide is incremented by 1, the iteration takes place on ALL of the slides in the nodeList - which is array like - the expression (i - curSlide) takes precedence and is calcuted, its result is multiplied by 100%. 
+
+Thus; for the first slide in the index, when the button is clicked its translateX value is now -100%, which places the slide element left of the current slide and the current slide is at 0%,  the next slide is at 100%, which places to the right of the current slide and so forth. 
+
+
+*/
+
+// Refactoring above code in to separate functions and wrapping in to its own function so that we do not polute the global namespace
+
+const slider = () => {
+  // we need to set the initial current slide to zero
+  let curSlide = 0;
+
+  // we need to minus by 1 because slides index is zero based 0,1,2
+  const maxSlide = slides.length - 1;
+
+  // Creating slider indicator dots
+
+  const createDots = () => {
+    slides.forEach((_, i) => {
+      indicators.insertAdjacentHTML(
+        'beforeend',
+        `<button class="indicators-dot" data-slide=${i}>`
+      );
+    });
+  };
+
+  /*
+
+  Instead of using Element.insertAdjacentHTML() method we can use document.createElement too. 
+
+  const createDots = () => {
+
+    slides.forEach((_, i) => {
+
+      const indicator = document.createElement('button');
+      indicator.classList.add('indicator-dot');
+      indicator.dataset.slide = i; 
+      indicators.appendChild(indicator);
+
+    });
+
+  }
+
+  The above is more performative and can mitigate against cross site scripting attacks but insertAdjacentHTML is useful when you markup that has dynamic generated content.
+
+*/
+
+  // Activate active dots function
+
+  const activateDot = (slide) => {
+    // removing the active class on all the indicators first
+    document.querySelectorAll('.indicators-dot').forEach((dot) => {
+      dot.classList.remove('indicators-dot--active');
+    });
+
+    // adding the active class to the active dot - using optional chaining ?. to check if element is null before adding the class
+
+    document
+      .querySelector(`.indicators-dot[data-slide="${slide}"]`)
+      ?.classList.add('indicators-dot--active');
+  };
+
+  // lets refactor translating the slide in to its own function
+
+  const gotToSlide = (slide) => {
+    slides.forEach((s, i) => {
+      const tempPara = s;
+      tempPara.style.transform = `translateX(${100 * (i - slide)}%)`;
+    });
+  };
+
+  // lets create a function(s) to change the slide
+
+  const nextSlide = () => {
+    // moves slide to the right
+
+    if (curSlide === maxSlide) {
+      curSlide = 0;
+    } else {
+      curSlide += 1;
+    }
+    gotToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const prevSlide = () => {
+    // moves slide to the left
+
+    if (curSlide === 0) {
+      curSlide = maxSlide;
+    } else {
+      curSlide -= 1;
+    }
+    gotToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  // Creating an init function here to initialise
+
+  const init = () => {
+    gotToSlide(0);
+    createDots();
+    activateDot(0);
+  };
+
+  init();
+
+  // the event listeners on the left and right buttons
+
+  slideBtnLeft.addEventListener('click', prevSlide);
+
+  slideBtnRight.addEventListener('click', nextSlide);
+
+  // Adding event listener to keydown
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+
+  // Adding event listener to indicators
+
+  indicators.addEventListener('click', (e) => {
+    if (e.target.classList.contains('indicators-dot')) {
+      const { slide } = e.target.dataset;
+      gotToSlide(slide);
+      activateDot(slide);
+    }
+  });
+};
+
+// invoking the above function
+
+slider();

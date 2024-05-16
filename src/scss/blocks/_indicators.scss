@@ -11,7 +11,7 @@ main {
 
       &-dot {
         border: none;
-        background-color: #b9b9b9;
+        background-color: variables.$color-background-dots;
         opacity: 0.7;
         height: 0.7rem;
         width: 0.7rem;
@@ -19,10 +19,14 @@ main {
         margin-right: variables.$spacing-lg;
         cursor: pointer;
         transition: all 0.5s;
+
+        &--active {
+          background-color: variables.$color-background-dots-active;
+        }
       }
 
       @media (width >= 48rem) {
-        bottom: -7%;
+        bottom: -1%;
       }
     }
   }

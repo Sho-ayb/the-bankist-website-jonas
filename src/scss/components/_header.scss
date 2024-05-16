@@ -4,7 +4,7 @@
   max-width: 100%;
   min-height: 100vh;
 
-  @media (min-width: 48rem) {
+  @media (width >= 48rem) {
     &-nav.sticky {
       position: fixed;
       background-color: rgb(255 255 255 / 95%);
